@@ -78,7 +78,10 @@ void loop() {
 ```
 #### Move on to Step 2 once you're seeing accurate distance data on serial monitor
 ## Step 3: Electric Heating Pad
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
+There are a great many heating elements on the market but most require a great deal of energy to provide heating. And most of those products are way too much for the needs of the Maker.
+
+The Adafruit 10cm x 5cm heating pad is different. Apply 5-12VDC and the stainless steel fibers in the heating fabric will warm up, creating a little heating pad. On one hand, it's just a gigantic resistor. On the other hand, it's flexible, light, and can be wrapped around a project. Originally designed for portable wearable heating pads, the fabric can be used for wearables, weather balloons, diy-bio projects, thermal cycling for materials testing, etc.
+
 ### How does the Electric Heating Pad work?
 The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Heat_Pad.jpg" width="650"/>
