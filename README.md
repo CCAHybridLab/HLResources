@@ -13,13 +13,6 @@ Learn how to use a Leap Motion to track hand and finger movement!
 ### [P5.JS <--> Arduino Communication](https://medium.com/@yyyyyyyuan/tutorial-serial-communication-with-arduino-and-p5-js-cd39b3ac10ce)
 [Medium Blog to follow along to](https://medium.com/@yyyyyyyuan/tutorial-serial-communication-with-arduino-and-p5-js-cd39b3ac10ce)
 ### Registering IoT Devices on CCA network
-[Register device here](https://portal.cca.edu/knowledge-base/general/registering-iot-devices-to-wifi/)
-
-In Arduino Code:
-```
-username = "CCA";
-password = "";
-```
 
 
 
