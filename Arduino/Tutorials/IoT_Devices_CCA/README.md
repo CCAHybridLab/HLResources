@@ -1,5 +1,5 @@
 # Using IoT Devices on CCA Network
-## &emsp; 1. Find Device's MAC Address. Run the following code in Arduino IDE connected to your device:
+## 1. Find Device's MAC Address. Run the following code in Arduino IDE connected to your device:
    ```
    #include <WiFi.h>
 
@@ -15,8 +15,8 @@ void setup() {
 void loop() {
 }
    ```
-## &emsp; 2. With the MAC Address, [Follow this Guide to Register device](https://portal.cca.edu/knowledge-base/general/registering-iot-devices-to-wifi/)
-## &emsp; 3. Update Arduino Project Code with
+## 2. With the MAC Address, [Follow this Guide to Register device](https://portal.cca.edu/knowledge-base/general/registering-iot-devices-to-wifi/)
+## 3. Update Arduino Project Code with
 ```
 username = "CCA";
 password = "";
