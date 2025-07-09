@@ -1,4 +1,4 @@
-# <b> Solenoid + Switches </b> 
+# <b> Soil Water Sensor </b> 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Ultrasonic_Sensor+OLED-Display/wiring-ultrasonic-distance+OLED-display.png" width="600"/>|
 |--|--|
 
