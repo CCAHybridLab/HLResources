@@ -12,4 +12,6 @@ Learn how to use various sensors like distance, pressure, motion, and sound to c
 Learn how to use a Leap Motion to track hand and finger movement!
 ### [P5.JS <--> Arduino Communication](https://medium.com/@yyyyyyyuan/tutorial-serial-communication-with-arduino-and-p5-js-cd39b3ac10ce)
 [Medium Blog to follow along to](https://medium.com/@yyyyyyyuan/tutorial-serial-communication-with-arduino-and-p5-js-cd39b3ac10ce)
+### [Processing <--> Arduino Communication]()
+Learn how to send data between a Processing sketch and an Arduino Sketch.
 ### [Using IoT Devices on CCA Network](https://github.com/CCAHybridLab/HLResources/tree/main/Arduino/Tutorials/IoT_Devices_CCA)
