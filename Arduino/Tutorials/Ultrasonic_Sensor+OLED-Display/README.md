@@ -122,6 +122,11 @@ void loop() {
   display.setCursor(0, 0); // start of yellow section
   display.println("Distance:");
 
+  if (distanceInch > 30) {
+    distanceCm = 0;
+    distanceInch = 0;
+  }
+
   display.setTextSize(3);
   display.setCursor(0, 16); // start of blue section
   display.print(distanceCm);
