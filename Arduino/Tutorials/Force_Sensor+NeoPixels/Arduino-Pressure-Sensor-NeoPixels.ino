@@ -33,19 +33,19 @@ void loop(void) {
     strip.setPixelColor(6, 75, 0, 130);
     strip.setPixelColor(7, 153 ,50, 204);
   } else if (fsrReading < 125) {
-    strip.fill(WHITE, 0, 1);
+    strip.fill(WHITE, 7, 1); // at pixel location 7, fill 1 pixel = 7
   } else if (fsrReading < 250) {
-    strip.fill(WHITE, 0, 2);
+    strip.fill(WHITE, 6, 2); // at pixel location 6, fill 2 pixels = 6, 7
   } else if (fsrReading < 375) {
-    strip.fill(WHITE, 0, 3);
+    strip.fill(WHITE, 5, 3); // at pixel location 5, fill 3 pixels = 5, 6, 7
   } else if (fsrReading < 500) {
-    strip.fill(WHITE, 0, 4);
+    strip.fill(WHITE, 4, 4); // ...
   } else if (fsrReading < 625) {
-    strip.fill(WHITE, 0, 5);
+    strip.fill(WHITE, 3, 5);
   } else if (fsrReading < 750) {
-    strip.fill(WHITE, 0, 6);
+    strip.fill(WHITE, 2, 6);
   } else if (fsrReading < 875) {
-    strip.fill(WHITE, 0, 7);
+    strip.fill(WHITE, 1, 7);
   } else {
     strip.fill(WHITE, 0, 8);
   }
