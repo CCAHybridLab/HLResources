@@ -62,6 +62,9 @@ void loop() {
 ```
 #### Move on to Step 2 once you're seeing accurate distance data on serial monitor
 ## Step 2: OLED Display
+- Install the following libraries in Arduino IDE:
+  - Adafruit GFX
+  - Adafruit SSD1306
 - Follow [this guide](https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/) <br/>
   *note: complete through the "“Hello, world!” OLED Display"*
 #### Move on to Step 3 once you see "Hello, world!" printed on display
