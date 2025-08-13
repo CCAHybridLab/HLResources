@@ -4,12 +4,12 @@
    #include <WiFi.h>
    
    void setup() {
-   Serial.begin(115200);
-   delay(1000);  // Give some time for serial to initialize
-   
-   WiFi.mode(WIFI_STA); // Initialize Wi-Fi in Station mode
-   delay(1000);  // Give some time for serial to initialize
-   Serial.println("MAC Address: " + WiFi.macAddress());
+      Serial.begin(115200);
+      delay(1000);  // Give some time for serial to initialize
+      
+      WiFi.mode(WIFI_STA); // Initialize Wi-Fi in Station mode
+      delay(1000);  // Give some time for serial to initialize
+      Serial.println("MAC Address: " + WiFi.macAddress());
    }
    
    void loop() {
