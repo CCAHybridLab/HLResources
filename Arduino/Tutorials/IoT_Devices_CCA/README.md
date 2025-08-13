@@ -2,18 +2,18 @@
 ## 1. Find Device's MAC Address. Run the following code in Arduino IDE connected to your device:
    ```
    #include <WiFi.h>
-
-void setup() {
-  Serial.begin(115200);
-  delay(1000);  // Give some time for serial to initialize
-
-  // Print the MAC address of the ESP32
-  Serial.print("MAC Address: ");
-  Serial.println(WiFi.macAddress());
-}
-
-void loop() {
-}
+   
+   void setup() {
+   Serial.begin(115200);
+   delay(1000);  // Give some time for serial to initialize
+   
+   WiFi.mode(WIFI_STA); // Initialize Wi-Fi in Station mode
+   delay(1000);  // Give some time for serial to initialize
+   Serial.println("MAC Address: " + WiFi.macAddress());
+   }
+   
+   void loop() {
+   }
    ```
 ## 2. With the MAC Address, [Follow this Guide to Register device](https://portal.cca.edu/knowledge-base/general/registering-iot-devices-to-wifi/)
 ## 3. Update Arduino Project Code with
