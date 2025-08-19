@@ -7,9 +7,11 @@ Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinker
 - [Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)
 - [Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)
 - [Buttons](https://www.adafruit.com/product/1481)
-- [MOSFET Module Driver](https://www.adafruit.com/product/1481)
-- [Electric Heatpad](https://www.adafruit.com/product/1481)
-- [Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)
+- [TIP 120 Transistor](https://www.adafruit.com/product/1481)
+- [1k Ω](https://www.adafruit.com/product/1481)
+- [1n4001 diode](https://www.adafruit.com/product/1331)
+- [6v 2A solenoid](https://www.adafruit.com/product/1331)
+- [external power source](https://www.adafruit.com/product/1331)
 
 ## 🔴 Step 1: Buttons
 Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
