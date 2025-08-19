@@ -15,7 +15,9 @@ Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinker
 
 ## 🔴 Step 1: Buttons
 Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed. this button will be used to control soenoid but before combining into solenoid it is easier to catch errors to test each step. 
-from this step
+
+this is how 4 pin buttons work. the pins have to be connected diagnolly 
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
 
