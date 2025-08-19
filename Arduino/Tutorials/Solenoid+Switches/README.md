@@ -28,11 +28,13 @@ Read more to understand how 4 pin button work from (https://makeabilitylab.githu
 
 ### Pullup Resistor
 This part is to explain how the coding works and why 'pullup' was used instead of 'input'
-What is a pull up? 
-why not just use input? - arduino is a very sensitive device, if you just leave it as input it will be effected my the surroundings, it is like a antanna that collects any signal. it will randomly pick up the signals when you put your finger near even before pressing a button. and this is called a **floating state**.
-Therefore you would need a pullup command so that the arduino would be stable state(high) and react when it is pressed(low)
 
-when the button is pressed it would connect to ground and pin would be on low and when not being pressed pin is in high state becasue of pull-up.
+What is a pull up? a pull-up is a command that makes your pin to be at 'high' state when it is not pressed.
+
+why not just use 'input' instead of 'pull-up'? - arduino is a very sensitive device, if you use 'input' it will be unstable, it is like a antenna that collects any electronic signal. It will randomly pick up the signals such as when you put your finger near even before pressing a button. and this unstable status is is called a **floating state**.
+Therefore you would need a 'pull-up' command so that the arduino would be stable state(high) and react when it is pressed(low)
+
+when the button is pressed(low) the pin would connect to ground, when it isn't the pin is in high state all the time becasue of pull-up.
 
 ### Build It
 Follow this diagram to test out for your own, **watch out for the LED placement:** the longer side is **positive** that goes to digital pin 13 and 12, shorter side is **negative** that goes to ground. 
