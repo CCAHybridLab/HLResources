@@ -12,6 +12,7 @@ Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinker
 - [1n4001 diode](https://www.adafruit.com/product/1331)
 - [6v 2A solenoid](https://www.adafruit.com/product/1331)
 - [external power source](https://www.adafruit.com/product/1331)
+- [LED](https://www.adafruit.com/product/1331)
 
 we will be testing each parts before combining them, it is easier to catch errors and understand how it works.
 
@@ -23,7 +24,50 @@ Little clicky switches are standard input "buttons" on electronic projects. Thes
 
 this is how 4 pin buttons work. the pins have to be connected diagnolly and for this project, we will be using two pins therefore you can use 2 or 4 pin button.  
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbuttonwork.png" width="500"/>
+Read more from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
+to get started, follow this map to test out for your own. watch out for the led placement. the longer side is positive that goes to digital pin 13 and 12, shorter side is minus that goes to ground. 
 
+
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/button%2Bled_bb.jpg" width="500"/>
+
+**Arduino Code:** <br /> 
+Similar Code Step-by-Step Explanation in [Little Bird Electrionic's Guide](https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino)
+```C++
+  /*
+  Switches with LED Arduino Tutorial
+
+  by Dejan Nedelkovski,
+  www.HowToMechatronics.com
+*/
+
+// defines pins numbers
+const int trigPin = 9;
+const int echoPin = 10;
+// defines variables
+long duration;
+int distance;
+void setup() {
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  Serial.begin(9600); // Starts the serial communication
+}
+void loop() {
+  // Clears the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+  // Calculating the distance
+  distance = duration * 0.034 / 2;
+  // Prints the distance on the Serial Monitor
+  Serial.print("Distance: ");
+  Serial.println(distance);
+}
+```
 
 
 More details about how the pins work (https://forum.arduino.cc/t/is-a-two-pin-button-the-same-as-the-arduino-four-pin-button/533619/6)
