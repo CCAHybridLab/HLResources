@@ -27,7 +27,8 @@ This is a 4-pin button, commonly used to trigger interactive action in your proj
 Read more to understand how 4 pin button work from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
 
 ### Pullup Resistor
-
+This part is to explain how the coding works and why 'pullup' was used instead of 'input'
+What is a pull up? why not just use input and 
 
 ### Build It
 Follow this diagram to test out for your own, **watch out for the LED placement:** the longer side is **positive** that goes to digital pin 13 and 12, shorter side is **negative** that goes to ground. 
