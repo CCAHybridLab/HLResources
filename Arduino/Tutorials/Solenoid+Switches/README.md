@@ -46,50 +46,34 @@ Follow this diagram to test out for your own, **watch out for the LED placement:
 **Arduino Code:** <br /> 
 Similar Code Step-by-Step Explanation in [Little Bird Electrionic's Guide](https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino)
 ```C++
-  /*
-  Switches with LED Arduino Tutorial
+const int button = 4;
+const int tbutton = 5;
 
-  referenced Cherie Tan
-  https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino
-*/
-
-const int blueledPin = 2;
-const int bluebuttonPin = 3;
-const int yellowledPin = 12;
-const int yellowbuttonPin = 13;
-
-void setup()
-{
-  pinMode(blueledPin,OUTPUT); // Set the LED Pin as an output
-  pinMode(bluebuttonPin,INPUT_PULLUP); // Set the Tilt Switch as an input
-
-  pinMode(yellowledPin,OUTPUT); // Set the LED Pin as an output
-  pinMode(yellowbuttonPin,INPUT_PULLUP); // Set the Tilt Switch as an input
+void setup() {
+  pinMode(button, INPUT_PULLUP);// put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(tbutton, INPUT_PULLUP);// put your setup code here, to run once:
+  Serial.begin(9600);
 }
 
-void loop()
-{
-  int bdigitalVal = digitalRead(bluebuttonPin);// Take a blue pin reading
-  int ydigitalVal = digitalRead(yellowbuttonPin);// Take a yellow pin reading
-
-
-  if(HIGH == bdigitalVal) //when yellow button is pressed
-  {
-    digitalWrite(blueledPin,LOW); //Turn the LED off
+void loop() {
+  int buttonState = digitalRead(button);
+  int tbuttonState = digitalRead(tbutton);
+  Serial.println(buttonState);
+  if (buttonState == HIGH) {
+    Serial.println("BUTTON1 HIGH");
+  } else {
+    Serial.println("BUTTON1 LOW");
   }
-  else
-  {
-    digitalWrite(blueledPin,HIGH); //Turn the LED on
+  delay(20);
+  // put your main code here, to run repeatedly:
+  Serial.println(buttonState);
+  if (tbuttonState == HIGH) {
+    Serial.println("BUTTON2 HIGH");
+  } else {
+    Serial.println("BUTTON2 LOW");
   }
-
-  if(HIGH == ydigitalVal) //when yellow button is pressed
-  {
-    digitalWrite(yellowledPin,LOW); //Turn the LED off
-  }
-  else
-  {
-    digitalWrite(yellowledPin,HIGH);//Turn the LED on
-  }
+  delay(20);
 }
 ```
 
