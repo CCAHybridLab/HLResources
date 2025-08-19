@@ -18,16 +18,18 @@ we will be testing each parts before combining them, it is easier to catch error
 
 ## 🔴 Step 1: Buttons
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbutton.jpg" width="500"/>
-Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
 
+This is a 4-pin button, commonly used to trigger interactive action in your project. Unlike 2-pin buttons, 4-pin buttons work in different ways. The pins must be connected diagonally. For this project, we will only be using two pins. Therefore, you can use a 2-pin or a 4-pin button.
 
-
-this is how 4 pin buttons work. the pins have to be connected diagnolly and for this project, we will be using two pins therefore you can use 2 or 4 pin button.  
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbuttonwork.png" width="500"/>
-Read more from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
 
-to get started, follow this map to test out for your own. watch out for the led placement. the longer side is positive that goes to digital pin 13 and 12, shorter side is minus that goes to ground. 
+Read more to understand how 4 pin button work from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
+
+to get started, follow this map to test out for your own. watch out for the LED placement. the longer side is positive that goes to digital pin 13 and 12, shorter side is minus that goes to ground. 
+
+
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/button%2Bled_bb.jpg" width="500"/>
+
 
 **Arduino Code:** <br /> 
 Similar Code Step-by-Step Explanation in [Little Bird Electrionic's Guide](https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino)
