@@ -23,6 +23,8 @@ This is a 4-pin button, commonly used to trigger interactive action in your proj
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbuttonwork.png" width="500"/>
 
+<gif src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/Arduino_Button_InternalLED_Animation_Edited.gif" width="500"/>
+
 Read more to understand how 4 pin button work from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
 
 to get started, follow this map to test out for your own. watch out for the LED placement. the longer side is positive that goes to digital pin 13 and 12, shorter side is minus that goes to ground. 
