@@ -13,18 +13,20 @@ Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinker
 - [6v 2A solenoid](https://www.adafruit.com/product/1331)
 - [external power source](https://www.adafruit.com/product/1331)
 
+we will be testing each parts before combining them, it is easier to catch errors and understand how it works.
+
 ## 🔴 Step 1: Buttons
-Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed. this button will be used to control soenoid but before combining into solenoid it is easier to catch errors to test each step. 
-
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbutton.jpg" width="500"/>
+Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
 
 
-this is how 4 pin buttons work. the pins have to be connected diagnolly 
+
+this is how 4 pin buttons work. the pins have to be connected diagnolly and for this project, we will be using two pins therefore you can use 2 or 4 pin button.  
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbuttonwork.png" width="500"/>
 
 
 
-Details about the button(https://forum.arduino.cc/t/is-a-two-pin-button-the-same-as-the-arduino-four-pin-button/533619/6)
+More details about how the pins work (https://forum.arduino.cc/t/is-a-two-pin-button-the-same-as-the-arduino-four-pin-button/533619/6)
 
 #### Move on to Step 2 once you've mimiced the diagram above. 
 ## Step 2: MOSFET Module Driver
