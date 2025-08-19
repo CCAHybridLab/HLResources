@@ -46,10 +46,10 @@ Similar Code Step-by-Step Explanation in [Little Bird Electrionic's Guide](https
   https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino
 */
 
-const int blueledPin = 12;
-const int yellowledPin = 13;
-const int bluebuttonPin = 2;
-const int yellowbuttonPin = 3;
+const int blueledPin = 2;
+const int bluebuttonPin = 3;
+const int yellowledPin = 12;
+const int yellowbuttonPin = 13;
 
 void setup()
 {
