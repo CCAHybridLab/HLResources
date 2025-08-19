@@ -7,14 +7,19 @@ Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinker
 - [Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)
 - [Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)
 - [Buttons](https://www.adafruit.com/product/1481)
-- [MOSFET Module Driver](https://www.adafruit.com/product/1481)
-- [Electric Heatpad](https://www.adafruit.com/product/1481)
-- [Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)
+- [TIP 120 Transistor](https://www.adafruit.com/product/1481)
+- [1k Ω](https://www.adafruit.com/product/1481)
+- [1n4001 diode](https://www.adafruit.com/product/1331)
+- [6v 2A solenoid](https://www.adafruit.com/product/1331)
+- [external power source](https://www.adafruit.com/product/1331)
 
 ## 🔴 Step 1: Buttons
-Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
+Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed. this button will be used to control soenoid but before combining into solenoid it is easier to catch errors to test each step. 
+from this step
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
+
+how the buttons work (https://forum.arduino.cc/t/is-a-two-pin-button-the-same-as-the-arduino-four-pin-button/533619/6)
 
 #### Move on to Step 2 once you've mimiced the diagram above. 
 ## Step 2: MOSFET Module Driver
