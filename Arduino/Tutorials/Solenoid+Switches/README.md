@@ -33,7 +33,7 @@ Read more to understand how 4 pin button work from (https://makeabilitylab.githu
 Follow this diagram to test out for your own, **watch out for the LED placement:** the longer side is **positive** that goes to digital pin 13 and 12, shorter side is **negative** that goes to ground. 
 
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/button%2Bled_bb.jpg" width="500"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/button%2Bled_bb.png" width="500"/>
 
 
 **Arduino Code:** <br /> 
