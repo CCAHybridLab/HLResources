@@ -25,9 +25,8 @@ Little clicky switches are standard input "buttons" on electronic projects. Thes
 this is how 4 pin buttons work. the pins have to be connected diagnolly and for this project, we will be using two pins therefore you can use 2 or 4 pin button.  
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/4pinbuttonwork.png" width="500"/>
 Read more from (https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
+
 to get started, follow this map to test out for your own. watch out for the led placement. the longer side is positive that goes to digital pin 13 and 12, shorter side is minus that goes to ground. 
-
-
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Solenoid%2BSwitches/images/button%2Bled_bb.jpg" width="500"/>
 
 **Arduino Code:** <br /> 
@@ -36,36 +35,47 @@ Similar Code Step-by-Step Explanation in [Little Bird Electrionic's Guide](https
   /*
   Switches with LED Arduino Tutorial
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
+  referenced Cherie Tan
+  https://learn.littlebirdelectronics.com.au/arduino/use-a-push-button-with-arduino
 */
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
-void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+const int blueledPin = 12;
+const int yellowledPin = 13;
+const int bluebuttonPin = 2;
+const int yellowbuttonPin = 3;
+
+void setup()
+{
+  pinMode(blueledPin,OUTPUT); // Set the LED Pin as an output
+  pinMode(bluebuttonPin,INPUT_PULLUP); // Set the Tilt Switch as an input
+
+  pinMode(yellowledPin,OUTPUT); // Set the LED Pin as an output
+  pinMode(yellowbuttonPin,INPUT_PULLUP); // Set the Tilt Switch as an input
 }
-void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+
+void loop()
+{
+  int bdigitalVal = digitalRead(bluebuttonPin);// Take a blue pin reading
+  int ydigitalVal = digitalRead(yellowbuttonPin);// Take a yellow pin reading
+
+
+  if(HIGH == bdigitalVal) //when yellow button is pressed
+  {
+    digitalWrite(blueledPin,LOW); //Turn the LED off
+  }
+  else
+  {
+    digitalWrite(blueledPin,HIGH); //Turn the LED on
+  }
+
+  if(HIGH == ydigitalVal) //when yellow button is pressed
+  {
+    digitalWrite(yellowledPin,LOW); //Turn the LED off
+  }
+  else
+  {
+    digitalWrite(yellowledPin,HIGH);//Turn the LED on
+  }
 }
 ```
 
