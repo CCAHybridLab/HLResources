@@ -1,5 +1,5 @@
 # <b> Electric Heatpad + Peltier Thermo-Electric Cooler </b> 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="400"/>|<img src="Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_01.HEIC" width="600"/>|
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_01.HEIC" width="600"/>|
 |--|--|
 
 ## Equipment
