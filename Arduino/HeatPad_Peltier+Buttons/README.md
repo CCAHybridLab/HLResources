@@ -13,7 +13,8 @@
 ## 🔴 Step 1: Two Pin Buttons
 These little clicky switches are standard input "buttons" on electronic projects and have two modes (on & off). The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response. 
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="600"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="400"/>|
+|--|--| 
 
 **Arduino Code:** <br /> 
 ```C++
