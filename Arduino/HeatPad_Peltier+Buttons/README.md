@@ -48,26 +48,21 @@ int button_OnState = digitalRead(button_OnPin);
 }
 ```
 ## 🔴 Step 2: MOSFET Module Driver
-The IRF520 MOSFET Driver Module is used to drive and control MOSFETs in various electronic circuits. Specifically, it is often used in situations where you need to provide high-power to devices or components (like motors, LEDs, or other loads) with a lower-power control signal, typically from a microcontroller (e.g., Arduino, Raspberry Pi). So, the module allows you to use a small control signal (like from a microcontroller or an Arduino) to switch the MOSFET on and off, which in turn controls a larger, high-power load (like a motor, LED strip, etc.).
+The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such motors, LED strips, solenoids and more.
+
 ### How does the MOSFET Module Driver work?
-In order to send a high-voltage source of power to your components, you first need to power the MOSFET Module in order to "open the gate" to the high voltage. So, an Arduino (or microcontroller) sends a signal to the SIG pin on the MOSFET which then powers the driver and creates a circuit by conecting it to the GND pin and back to the Arduino. The Arduino's low voltage sent to the MOSFET essentially "opens the gate", allowing higher voltages inputed into the MOSFET externally to power other components. 
-
-Across the board of the driver are the VIN pin and GND pins. These pins are used to supply your output with a high-voltage source of power. You would attached your high-source of power (9V battery pack, 12v power pack, etc) to these pins. 
-
-The <b> V- & V+ </b> pins on the driver are used as the positive and negative for your other components (heatpad, peltier, solenoid, etc)
-
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="550"/>
+A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
 
 <b> *Please note, if the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through. </b>
 
-Here is a video further explaning how the MOSFET Driver works (https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
 
 ## 🔴 Step 3: Connecting the Electric Heat Pad to the MOSFET Driver
-There are a great many heating elements on the market but most require a great deal of energy to provide heating and most of those products are way beyond the cope of the maker. The Adafruit 10cm x 5cm heating pad is different. When 5-12VDC is applied, the stainless steel fibers in the heating fabric will warm up, creating a flexible, light heating pad that can be wrapped around and maniopulated for a wearable project.
+Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects.
 
-### How does the Electric Heating Pad work?
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Heat_Pad.jpg" width="500"/>
+The pad runs safely on 5V / 1A, but for stronger heating, it can be driven with up to 12V, 1A. 
+
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad.jpg" width="500"/>
 
 Here is a video further explaing the mechanics of the heatpad (https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/) 
 
