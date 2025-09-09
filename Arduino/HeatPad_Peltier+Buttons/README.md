@@ -13,7 +13,7 @@
 ## 🔴 Step 1: Two Pin Buttons
 These little clicky switches are standard input "buttons" on electronic projects and have two modes (on & off). The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response. 
 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="600"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="400"/>|
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="500"/>|
 |--|--| 
 
 **Arduino Code:** <br /> 
@@ -73,16 +73,34 @@ Here is a video further explaing the mechanics of the heatpad (https://howtomech
 
 **Arduino Code:** <br /> 
 ```C++
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+// Define pins for the MOS Module
+const int heatPadPin = 13;        // Output signal to the MOS Module
+
+// Timer variables
+unsigned long heatPadStartTime = 0;
+const unsigned long maxOnDuration = 30000; // 2 minutes in milliseconds
+
+bool heatPadOn = false;
+
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+ // Set pin modes
+ pinMode(heatPadPin, OUTPUT);      // MOS Module control pin
+
+ // Ensure heating pad starts OFF
+ digitalWrite(heatPadPin, LOW);
+
+    digitalWrite(heatPadPin, HIGH);
+   heatPadOn = true;
+   heatPadStartTime = millis(); // Record the start time
+}
+
+void loop() {
+
+ // Check if the heating pad has been on for too long
+ if (heatPadOn && (millis() - heatPadStartTime >= maxOnDuration)) {
+   digitalWrite(heatPadPin, LOW);
+   heatPadOn = false;
+ }
 }
 ```
 
