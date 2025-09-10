@@ -73,7 +73,7 @@ const int heatPadPin = 13;        // Output signal to the MOS Module
 
 // Timer variables
 unsigned long heatPadStartTime = 0;
-const unsigned long maxOnDuration = 30000; // 2 minutes in milliseconds
+const unsigned long maxOnDuration = 30000; // 30 seconds in milliseconds
 
 bool heatPadOn = false;
 
@@ -81,8 +81,7 @@ void setup() {
  // Set pin modes
  pinMode(heatPadPin, OUTPUT);      // MOS Module control pin
 
- // Ensure heating pad starts OFF
- digitalWrite(heatPadPin, LOW);
+ digitalWrite(heatPadPin, LOW);  // Ensure heating pad starts OFF
 
     digitalWrite(heatPadPin, HIGH);
    heatPadOn = true;
