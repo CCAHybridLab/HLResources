@@ -99,13 +99,13 @@ void loop() {
 }
 ```
 
-## Step 4: Connecting the Peltier Thermo-Electric Cooler to the MOSFET Driver
+## 🔴 Step 4: Connecting the Peltier Thermo-Electric Cooler to the MOSFET Driver
 Keep it cool with a Peltier module. These unique electronic components can generate a temperature differential when powered. That is to say, apply 5V to the red (positive) and black (negative) wires and one side will get cold while the other side gets hot. For best results, you'll need to wick away that heat (otherwise the cold side will slowly get warmer). A fan and/or heatsink is ideal.
 ### How does the Peltier work?
 The peltier works similiar to the Heatpad as it requires 5V of power at 1.5 amps through a MOSFET Driver. For the code follow the same instructions as the heatpad, making sure to assign it pins, adding it in the void loop and 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="500"/>
 
-## Step 5: Connecting all components together! 
+## 🔴 Step 5: Connecting all components together! 
 
 The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
 
@@ -172,3 +172,8 @@ void loop() {
 }
 ```
 <br/>
+
+## 🔴 Extra Step: 3D model for Peltier
+The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
+
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="500"/>
