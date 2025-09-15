@@ -2,19 +2,46 @@
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
 |--|--| 
 
-## Equipment
-- [Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)
-- [Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)
-- [Buttons](https://www.adafruit.com/product/1481)
-- [MOSFET Module Driver](https://www.adafruit.com/product/1481)
-- [Electric Heatpad](https://www.adafruit.com/product/1481)
-- [Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)
+ ## Equipment & Components
 
-## 🔴 Step 1: Two Pin Buttons
-These little clicky switches are standard input "buttons" on electronic projects and have two modes (on & off). The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response. 
+<p>
+  This project uses a Heating Pad & Peltier module to output heat/cooling.
+</p>
+
+| Component | Quantity | Notes |
+|:---|:---:|:---|
+| **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
+| **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 1 | For connecting components together. |
+| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | 1 | Our target for heating & cooling. 🧊 |
+| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | 1 | Required to control the high current for the heating & cooling. |
+| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 1 | Our target for heating. |
+| **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
+| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | For turning components on & off. |
+
+
+> 💡 **Tip:** Always make sure you have all equipment before starting a project.
+
+
+<details>
+  <summary>
+     <h2> Step 1: Setting up the Arduino + On/Off </h2>
+  </summary>
+  <br>
+  <p>
+    Begin by setting up the Arduino and connecting the wiring as follows.
+  </p>
+
+> 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="500"/>|
 |--|--| 
+
+- These little clicky switches are standard input "buttons" on electronic projects and have two modes <b> (On 🔴 & Off 🔵 ) </b>. The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response. 
+- 
+- 
+- (On 🔴 & Off 🔵 ) 
+- Blue Circle Emoji: Meaning & Usage
+
 
 **Arduino Code:** <br /> 
 ```C++
@@ -47,6 +74,56 @@ int button_OnState = digitalRead(button_OnPin);
  delay(50);
 }
 ```
+</details>
+
+
+
+<details>
+  <summary>
+     <h2> Step 2: Understanding the MOSFET </h2>
+  </summary>
+  <br>
+  <p>
+    Here are the detailed instructions for this step. You can include text, images, and more.
+  </p>
+  <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+</details>
+
+
+<details>
+  <summary>
+     <h2> Step 3: Connecting the HeatPad + Peltier </h2>
+  </summary>
+  <br>
+  <p>
+    Here are the detailed instructions for this step. You can include text, images, and more.
+  </p>
+  <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+</details>
+
+<details>
+  <summary>
+     <h2> Step 4: Putting it all together! </h2>
+  </summary>
+  <br>
+  <p>
+    Here are the detailed instructions for this step. You can include text, images, and more.
+  </p>
+  <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+</details>
+
+
+<details>
+  <summary>
+     <h2> Step 5 (Optional): 3D Printing Case for Peltier </h2>
+  </summary>
+  <br>
+  <p>
+    Here are the detailed instructions for this step. You can include text, images, and more.
+  </p>
+  <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+</details>
+
 ## 🔴 Step 2: MOSFET Module Driver
 The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such motors, LED strips, solenoids and more.
 
