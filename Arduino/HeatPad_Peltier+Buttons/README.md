@@ -2,7 +2,7 @@
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
 |--|--| 
 
- ## Equipment & Components
+ ## ⚙️ Equipment & Components
 
 <p>
   This project uses a Heating Pad & Peltier module to output heat/cooling.
@@ -18,62 +18,66 @@
 | **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
 | **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | For turning components on & off. |
 
-
-> 💡 **Tip:** Always make sure you have all equipment before starting a project.
-
+  <p>
+    <strong>Important Note:</strong>
+ Always make sure you have all equipment before starting a project.
+  </p>
 
 <details>
   <summary>
-     <h2> Step 1: Setting up the Arduino + On/Off </h2>
+     <h2> Step 1: Setting up the Arduino + Buttons </h2>
   </summary>
-  <br>
+ 
   <p>
     Begin by setting up the Arduino and connecting the wiring as follows.
   </p>
 
-> 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
-
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="500"/>|
 |--|--| 
 
-- These little clicky switches are standard input "buttons" on electronic projects and have two modes <b> (On 🔴 & Off 🔵 ) </b>. The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response. 
-- 
-- 
-- (On 🔴 & Off 🔵 ) 
-- Blue Circle Emoji: Meaning & Usage
+| Component | Quantity | Notes |
+|:---|:---:|:---|
+| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | These switches are standard input "buttons" on electronic projects and have two modes <b>(On & Off).</b> The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response.  
 
+- Start by connecting the buttons to the breadboard. We will be using: (ON 🔴 & OFF 🔵) 
+- Using the jumper wires connect the (+) for the ON 🔴 to Pin 12 & the (+) for the OFF 🔵 to Pin 10.
+- Using the breadboard, connect ground to the Arduino. 
+- Connect your Arduino to your laptop.
+- Copy the code below and read the comments to understand how it works. 
+<br> </br>
+> 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
 
 **Arduino Code:** <br /> 
 ```C++
-const int button_OnPin = 12;
-const int button_OffPin = 10;
+const int button_OnPin = 12; // On button is connected to digital pin 12
+const int button_OffPin = 10; // Off button is connected to digital pin 10
 
-void setup() {
- // Set pin modes
+void setup() { // Set pin modes
 
- Serial.begin(9600);
-
- pinMode(button_OnPin, INPUT_PULLUP);  // Button 1 with pull-up resistor
- pinMode(button_OffPin, INPUT_PULLUP); // Button 2 with pull-up resistor
+ Serial.begin(9600); // Intialize serial communication on Arduino to send data
+ pinMode(button_OnPin, INPUT_PULLUP);  // Button 1 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
+ pinMode(button_OffPin, INPUT_PULLUP); // Button 2 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
 }
 
-void loop() {
- // Read button states
-int button_OnState = digitalRead(button_OnPin);
- int button_OffState = digitalRead(button_OffPin);
+void loop() { // Read button states; INPUT_PULLUP means unpressed = HIGH, pressed = LOW
+                                                  
+int button_OnState = digitalRead(button_OnPin);   // Button 1 state (starts HIGH = not pressed)
+int button_OffState = digitalRead(button_OffPin); // Button 2 state (starts HIGH = not pressed)
 
- if (button_OnState == LOW) {
-   Serial.println("Button 1 PRESSED");
- }
+if (button_OnState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
+  Serial.println("Button 1 PRESSED");
+}
 
- if (button_OffState == LOW) {
-   Serial.println("Button 2 PRESSED");
- }
+ if (button_OffState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
+   Serial.println("Button 2 PRESSED");}
 
- // Add a small delay to debounce the buttons
- delay(50);
+ delay(50); // Add a small delay to debounce the buttons
 }
 ```
+Test out the code and look at the <strong> Serial Monitor </strong> to see if the buttons are connect correctly. 
+<br> </br>
+✅ If the serial monitor reads "Button PRESSED", you did it! Move on to Step 2.
+
 </details>
 
 
@@ -137,7 +141,7 @@ A microcontroller sends a signal to the SIG pin, which activates the MOSFET and 
 ## 🔴 Step 3: Connecting the Electric Heat Pad to the MOSFET Driver
 Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects.
 
-The pad runs safely on 5V / 1A, but for stronger heating, it can be driven with up to 12V, 1A. 
+The pad runs safely on 5V / 1A, but for stronger heating, it can be driven with up to 12V, 1A. ⚠️ for warnings or cautions
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad.jpg" width="500"/>
 
