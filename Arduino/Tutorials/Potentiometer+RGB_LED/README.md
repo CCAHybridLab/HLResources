@@ -1,22 +1,22 @@
-# <b> Electric Heatpad + Peltier Thermo-Electric Cooler </b> 
+# <b> Potentiometer + Diffused RGB LED </b> 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
 |--|--| 
 
  ## ⚙️ Equipment & Components
 
 <p>
-  This project uses a Heating Pad & Peltier module to output heat/cooling.
+  This project uses a potentiometer to control RGB LED output.
 </p>
 
 | Component | Quantity | Notes |
 |:---|:---:|:---|
 | **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
 | **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 1 | For connecting components together. |
-| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | 1 | Our target for heating & cooling. 🧊 |
-| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | 1 | Required to control the high current for the heating & cooling. |
-| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 1 | Our target for heating. |
+| **[Diffused RGB (Tri-Color) LED](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Our changing variable. |
+| **[10K Potentiometer](https://www.adafruit.com/product/562?srsltid=AfmBOoqtB6Lbhd8nUAGzxMfThQJemVqiWrplyxYimvI-uLNBoEpAtYPYYGA)** | 1 | Controls our LED output. |
+| **[220 ohm Resistor](https://www.adafruit.com/product/2780?srsltid=AfmBOopmkZkIUP5s_hycNqkQo98pfRENfjLETCFsG8mRPr04hxSWfXWS)** | 3 | Controls electrical curent to LED. |
 | **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
-| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | For turning components on & off. |
+| **[(Optional) Potemtiometer Cap](https://www.adafruit.com/product/1481)** | 1 | For easier control of the potentiometer. |
 
   <p>
     <strong>Important Note:</strong>
