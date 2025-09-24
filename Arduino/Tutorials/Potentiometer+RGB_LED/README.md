@@ -25,72 +25,15 @@
 
 <details>
   <summary>
-     <h2> Step 1: Setting up the Arduino </h2>
+     <h2> Step 1: Understanding the Potentiometer </h2>
   </summary>
   <br>
   <p>
-    Begin by setting up the Arduino and connecting the wiring as follows.
-  </p>
-
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Pin.jpg" width="500"/>|
-|--|--| 
-
-| Component | Quantity | Notes |
-|:---|:---:|:---|
-| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | These switches are standard input "buttons" on electronic projects and have two modes <b>(On & Off).</b> The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response.  
-
-- Start by connecting the buttons to the breadboard. We will be using: (ON 🔴 & OFF 🔵) 
-- Using the jumper wires connect the (+) for the ON 🔴 to Pin 12 & the (+) for the OFF 🔵 to Pin 10.
-- Using the breadboard, connect ground to the Arduino. 
-- Connect your Arduino to your laptop.
-- Copy the code below and read the comments to understand how it works. 
-<br> </br>
-> 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
-
-**Arduino Code:** <br /> 
-```C++
-const int button_OnPin = 12; // On button is connected to digital pin 12
-const int button_OffPin = 10; // Off button is connected to digital pin 10
-
-void setup() { // Set pin modes
-
- Serial.begin(9600); // Intialize serial communication on Arduino to send data
- pinMode(button_OnPin, INPUT_PULLUP);  // Button 1 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
- pinMode(button_OffPin, INPUT_PULLUP); // Button 2 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
-}
-
-void loop() { // Read button states; INPUT_PULLUP means unpressed = HIGH, pressed = LOW
-                                                  
-int button_OnState = digitalRead(button_OnPin);   // Button 1 state (starts HIGH = not pressed)
-int button_OffState = digitalRead(button_OffPin); // Button 2 state (starts HIGH = not pressed)
-
-if (button_OnState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
-  Serial.println("Button 1 PRESSED");
-}
-
- if (button_OffState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
-   Serial.println("Button 2 PRESSED");}
-
- delay(50); // Add a small delay to debounce the buttons
-}
-```
-Test out the code and look at the <strong> Serial Monitor </strong> to see if the buttons are connect correctly. 
-<br> </br>
-✅ If the serial monitor reads "Button PRESSED", you did it! Move on to Step 2.
-
-</details>
-
-
-
-<details>
-  <summary>
-     <h2> Step 2: Understanding the MOSFET </h2>
-  </summary>
-  <br>
-  <p>
-    Here are the detailed instructions for this step. You can include text, images, and more.
+    Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
   </p>
   <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+## something idk
+ ### Subtitle
 </details>
 
 
@@ -128,13 +71,18 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
   <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
 </details>
 
-## 🔴 Step 2: MOSFET Module Driver
-The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such motors, LED strips, solenoids and more.
+## 🔴 Step 1: Understanding the Potentiometer
+Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
 
-### How does the MOSFET Module Driver work?
-A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
+### How does the Potentiometer work?
+The potentiometer has 3 terminals-- the two outer terminals are fixed, while the middle terminal is variable.
 
-<b> *Please note, if the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through. </b>
+For this project, connect the potentiometer to the arduino and bread board as follows:
+
+***this will be a diagram
+Terminal 1 to GND
+Terminal 2 to output
+Terminal 3 to input
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
 
