@@ -93,11 +93,11 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
 
 A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/MOSFET.jpg" width="1000"/>
 
 > 📝  **Note:** If the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through.
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing_01.jpg" width="1000"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_01.jpg" width="1000"/>
 
 | Component | Description |
 |:---|:---|
