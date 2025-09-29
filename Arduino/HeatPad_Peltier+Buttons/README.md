@@ -92,12 +92,13 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
 | **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more. 
 
 A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
-
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/MOSFET.jpg" width="1000"/>
-
+<br> </br>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/MOSFET_01.jpg" width="1000"/>
+<br> </br>
 > 📝  **Note:** If the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through.
-
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_01.jpg" width="1000"/>
+<br> </br>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_Final.jpg" width="1000"/>
+<br> </br>
 
 | Component | Description |
 |:---|:---|
@@ -151,11 +152,24 @@ Test out the code and test the heatpad to see if it feels warm.
 
 <details>
   <summary>
-     <h2> Step 3: Putting it all together! (and adding Peltier) </h2>
+     <h2> Step 3: Putting it all together! </h2>
   </summary>
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
+ <p>
+    Follow the diagram below and connect all components together. 
+  </p>
 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
+
+| Component | Description |
+|:---|:---|
+| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. 
+
+- Start by connecting a Peltier to another MOSFET Driver using V- (for ground) ⚫ and V+ (for power) 🔴. 
+- Next connect the barrel jack to the MOSFET using VIN & GND.
+-   
+- Connect your Arduino to your laptop.
+- Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
+- Copy the code below and read the comments to understand how it works. 
 
 **Arduino Code:** <br /> 
 ```C++
@@ -224,7 +238,8 @@ void loop() {
   <summary>
      <h2> Step 4 (Optional): 3D Printing Case for Peltier </h2>
   </summary>
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/3D_Peltier.png" width="500"/>
+</details>
+To help secure the Peltier module and keep it from shifting around, we’ve included a custom 3D-printed case design. You can find the print file in the “3D Assets” folder of this tutorial. As a bonus, the file is already set up for easy printing on a Bambu printer, but you can adapt it for other 3D printers as well.
+<br> </br>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/3D_Peltier.png" width="500"/>
 </details>
