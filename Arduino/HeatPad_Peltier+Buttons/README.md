@@ -100,18 +100,27 @@ A microcontroller sends a signal to the SIG pin, which activates the MOSFET and 
 
 <details>
   <summary>
-     <h2> Step 3: Connecting the HeatPad + Peltier </h2>
+     <h2> Step 3: Connecting the HeatPad </h2>
   </summary>
-Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects.
-<br> </br>
-The pad runs safely on 5V / 1A, but for stronger heating, it can be driven with up to 12V, 1A. ⚠️ for warnings or cautions
-<br> </br>
+ <p>
+    Begin by connecting the wiring as follows.
+  </p>
 
- |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_01.jpg" width="500"/>|
-|--|--| 
- width="500"/>
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heat_03.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_02.jpg" width="500"/>|
+|--|--|
 
-Here is a video further explaing the mechanics of the heatpad (https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/) 
+| Component | Quantity | Notes |
+|:---|:---:|:---|
+| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 1 | Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. 
+
+- Start by connecting the MOSFET Driver to the heatpad/peltier using V- (for ground)⚫ and V+ (for power) 🔴. 
+- Next connect the barrel jack to the MOSFET using VIN & GND. 
+- After that conect the MOSFET to the Arduino using SIG on Pin 13 and GND.  
+- Connect your Arduino to your laptop.
+- Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
+- Copy the code below and read the comments to understand how it works. 
+<br> </br>
+> ⚠️ **Caution:** The heatpad runs safely on 5V / 1A, but for stronger heating it can be driven with up to 12V, but do not go above 1A as this will damage components.
 
 **Arduino Code:** <br /> 
 ```C++
@@ -144,15 +153,19 @@ void loop() {
  }
 }
 ```
+Test out the code and test the heatpad to see if it feels warm.
+<br> </br>
+✅ If the heatpad feels warm and turns off after 30 seconds, you did it! Move on to Step 4.
+
 </details>
 
 <details>
   <summary>
-     <h2> Step 4: Putting it all together! </h2>
+     <h2> Step 4: Putting it all together! (and adding Peltier) </h2>
   </summary>
 The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
 
 **Arduino Code:** <br /> 
 ```C++
