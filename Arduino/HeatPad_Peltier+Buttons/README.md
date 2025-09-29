@@ -35,9 +35,9 @@
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Two_Buttons.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Button_Fritzing_01.jpg" width="500"/>|
 |--|--| 
 
-| Component | Quantity | Notes |
-|:---|:---:|:---|
-| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | 2 | These switches are standard input "buttons" on electronic projects and have two modes <b>(On & Off).</b> The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response.  
+| Component | Description |
+|:---|:---|
+| **[Two Pin Buttons](https://www.adafruit.com/product/1481)** | These switches are standard input "buttons" on electronic projects and have two modes <b>(On & Off).</b> The buttons work by two pins that are normally open (disconnected) and when the button is pressed they are momentarily closed causing a reaction in response.  
 
 - Start by connecting the buttons to the breadboard. We will be using: (ON 🔴 & OFF 🔵) 
 - Using the jumper wires connect the (+) for the ON 🔴 to Pin 12 & the (+) for the OFF 🔵 to Pin 10.
@@ -84,43 +84,27 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
 
 <details>
   <summary>
-     <h2> Step 2: Understanding the MOSFET </h2>
+     <h2> Step 2: Connecting Heatpad to MOSFET </h2>
   </summary>
-  <p>
-    Refer to the diagram below to understand how the <b>MOSFET Module Driver </b> works. 
-  </p>
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
+ 
+ | Component | Description |
+|:---|:---|
+| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more. 
 
-| Component | Quantity | Notes |
-|:---|:---:|:---|
-| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | 1 | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more.  
-
-### How does the MOSFET Module Driver work?
 A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
 
-<b> *Please note, if the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through. </b>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
 
-✅ Once you understand how the MOSFET Driver works, move on to Step 3.
-</details>
+> 📝  **Note:** If the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through.
 
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing_01.jpg" width="1000"/>
 
-<details>
-  <summary>
-     <h2> Step 3: Connecting the HeatPad </h2>
-  </summary>
- <p>
-    Begin by connecting the wiring as follows.
-  </p>
+| Component | Description |
+|:---|:---|
+| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. 
 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heat_03.jpg" width="500"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_02.jpg" width="500"/>|
-|--|--|
-
-| Component | Quantity | Notes |
-|:---|:---:|:---|
-| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 1 | Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. 
-
-- Start by connecting the MOSFET Driver to the heatpad/peltier using V- (for ground)⚫ and V+ (for power) 🔴. 
-- Next connect the barrel jack to the MOSFET using VIN & GND. 
+- Start by connecting the MOSFET Driver to the heatpad/peltier using V- (for ground) ⚫ and V+ (for power) 🔴. 
+- Next connect the barrel jack to the MOSFET using VIN & GND.
 - After that conect the MOSFET to the Arduino using SIG on Pin 13 and GND.  
 - Connect your Arduino to your laptop.
 - Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
@@ -161,13 +145,13 @@ void loop() {
 ```
 Test out the code and test the heatpad to see if it feels warm.
 <br> </br>
-✅ If the heatpad feels warm and turns off after 30 seconds, you did it! Move on to Step 4.
+✅ If the heatpad feels warm and turns off after 30 seconds, you did it! Move on to Step 3.
 
 </details>
 
 <details>
   <summary>
-     <h2> Step 4: Putting it all together! (and adding Peltier) </h2>
+     <h2> Step 3: Putting it all together! (and adding Peltier) </h2>
   </summary>
 The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
 
@@ -238,7 +222,7 @@ void loop() {
 
 <details>
   <summary>
-     <h2> Step 5 (Optional): 3D Printing Case for Peltier </h2>
+     <h2> Step 4 (Optional): 3D Printing Case for Peltier </h2>
   </summary>
 The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
 
