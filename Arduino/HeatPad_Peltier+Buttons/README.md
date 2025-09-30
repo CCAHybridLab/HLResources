@@ -80,16 +80,14 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
 
 </details>
 
-
-
 <details>
   <summary>
-     <h2> Step 2: Connecting Heatpad to MOSFET </h2>
+     <h2> Step 2: Connecting Component to MOSFET </h2>
   </summary>
  
  | Component | Description |
 |:---|:---|
-| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more. 
+| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more. |
 
 A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
 <br> </br>
@@ -100,9 +98,10 @@ A microcontroller sends a signal to the SIG pin, which activates the MOSFET and 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_Final.jpg" width="1000"/>
 <br> </br>
 
-| Component | Description |
-|:---|:---|
-| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. 
+ | Component | Description |
+ |:---|:---|
+| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 5-12V up to 1A |
+| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | 5V up to 1.5A |
 
 - Start by connecting the MOSFET Driver to the heatpad/peltier using V- (for ground) ⚫ and V+ (for power) 🔴. 
 - Next connect the barrel jack to the MOSFET using VIN & GND.
@@ -151,14 +150,68 @@ Test out the code and test the heatpad to see if it feels warm.
 </details>
 
 <details>
+<summary>
+     <h2> Step 3: Joining Buttons + Components </h2>
+  </summary>
+ 
+  <p>
+    Begin by connecting the wiring as follows.
+  </p>
+  
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad__Button.jpg" width="1000"/> 
+
+- Start by connecting the buttons to the breadboard. We will be using: (ON 🔴 & OFF 🔵) 
+- Using the jumper wires connect the (+) for the ON 🔴 to Pin 12 & the (+) for the OFF 🔵 to Pin 10.
+- Using the breadboard, connect ground to the Arduino. 
+- Connect your Arduino to your laptop.
+- Copy the code below and read the comments to understand how it works. 
+<br> </br>
+> 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
+
+**Arduino Code:** <br /> 
+```C++
+const int button_OnPin = 12; // On button is connected to digital pin 12
+const int button_OffPin = 10; // Off button is connected to digital pin 10
+
+void setup() { // Set pin modes
+
+ Serial.begin(9600); // Intialize serial communication on Arduino to send data
+ pinMode(button_OnPin, INPUT_PULLUP);  // Button 1 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
+ pinMode(button_OffPin, INPUT_PULLUP); // Button 2 uses internal pull-up (pin reads HIGH when unpressed, LOW when pressed)
+}
+
+void loop() { // Read button states; INPUT_PULLUP means unpressed = HIGH, pressed = LOW
+                                                  
+int button_OnState = digitalRead(button_OnPin);   // Button 1 state (starts HIGH = not pressed)
+int button_OffState = digitalRead(button_OffPin); // Button 2 state (starts HIGH = not pressed)
+
+if (button_OnState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
+  Serial.println("Button 1 PRESSED");
+}
+
+ if (button_OffState == LOW) { // Button is pressed (LOW because pin connects to GND when pressed)
+   Serial.println("Button 2 PRESSED");}
+
+ delay(50); // Add a small delay to debounce the buttons
+}
+```
+Test out the code and look at the <strong> Serial Monitor </strong> to see if the buttons are connect correctly. 
+<br> </br>
+✅ If the serial monitor reads "Button PRESSED", you did it! Move on to Step 2.
+
+</details>
+
+
+
+<details>
   <summary>
-     <h2> Step 3: Putting it all together! </h2>
+     <h2> Step 4: Putting it all together! </h2>
   </summary>
  <p>
     Follow the diagram below and connect all components together. 
   </p>
 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="1000"/>
 
 | Component | Description |
 |:---|:---|
@@ -236,9 +289,8 @@ void loop() {
 
 <details>
   <summary>
-     <h2> Step 4 (Optional): 3D Printing Case for Peltier </h2>
+     <h2> Step 5 (Optional): 3D Printing Case for Peltier </h2>
   </summary>
-</details>
 To help secure the Peltier module and keep it from shifting around, we’ve included a custom 3D-printed case design. You can find the print file in the “3D Assets” folder of this tutorial. As a bonus, the file is already set up for easy printing on a Bambu printer, but you can adapt it for other 3D printers as well.
 <br> </br>
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/3D_Peltier.png" width="500"/>
