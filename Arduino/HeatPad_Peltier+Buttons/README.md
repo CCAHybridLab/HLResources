@@ -87,21 +87,21 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
  
  | Component | Description |
 |:---|:---|
-| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module lets a low-power control signal (from microcontrollers such as an Arduino, Raspberry Pi, etc.) switch on the MOSFET to allow high-power voltage to flow to components such as motors, LED strips, solenoids and more. |
+| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module acts like a power switch. Since microcontrollers like Arduinos or Raspberry Pis can only send weak signals, the module uses that signal (through the SIG pin) to “open the gate” and let an external power source (connected to VIN and GND) drive bigger loads. Your component connects to V+ and V-, which deliver the stronger power it needs.|
 
-A microcontroller sends a signal to the SIG pin, which activates the MOSFET and connects the circuit through GND. This “opens the gate,” allowing an external high-voltage source (connected to VIN and GND) to power your load. Your component connects to V+ and V-, which deliver the high-voltage power to the device.
 <br> </br>
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/MOSFET_01.jpg" width="1000"/>
 <br> </br>
-> 📝  **Note:** If the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through.
-<br> </br>
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_Final.jpg" width="1000"/>
+
+| Component | Description |
+|:---|:---|
+| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | <b> 5-12V up to 1A </b>; Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. |
+| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | <b> 5V up to 1.5A </b>; Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects. |
+
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/Heatpad_Fritzing_Final_Diagram.jpg" width="1000"/>
 <br> </br>
 
- | Component | Description |
- |:---|:---|
-| **[Electric Heatpad](https://www.adafruit.com/product/1481)** | 5-12V up to 1A |
-| **[Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)** | 5V up to 1.5A |
+> ⚠️ **Caution:** The heatpad runs safely on 5V / 1A, but for stronger heating it can be driven with up to 12V, but do not go above 1A as this will damage components.
 
 - Start by connecting the MOSFET Driver to the heatpad/peltier using V- (for ground) ⚫ and V+ (for power) 🔴. 
 - Next connect the barrel jack to the MOSFET using VIN & GND.
@@ -110,8 +110,6 @@ A microcontroller sends a signal to the SIG pin, which activates the MOSFET and 
 - Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
 - Copy the code below and read the comments to understand how it works. 
 <br> </br>
-> ⚠️ **Caution:** The heatpad runs safely on 5V / 1A, but for stronger heating it can be driven with up to 12V, but do not go above 1A as this will damage components.
-
 **Arduino Code:** <br /> 
 ```C++
 // Define pins for the MOS Module
@@ -143,6 +141,8 @@ void loop() {
  }
 }
 ```
+> 📝  **Note:** If the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through.
+
 Test out the code and test the heatpad to see if it feels warm.
 <br> </br>
 ✅ If the heatpad feels warm and turns off after 30 seconds, you did it! Move on to Step 3.
