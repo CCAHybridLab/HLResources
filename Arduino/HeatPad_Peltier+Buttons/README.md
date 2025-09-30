@@ -87,7 +87,7 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
  
  | Component | Description |
 |:---|:---|
-| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module acts like a power switch. Since microcontrollers like Arduinos or Raspberry Pis can only send weak signals, the module uses that signal (through the SIG pin) to “open the gate” and let an external power source (connected to VIN and GND) drive bigger loads. Your component connects to V+ and V-, which deliver the stronger power it needs.|
+| **[MOSFET Module Driver](https://www.adafruit.com/product/1481)** | The IRF520 MOSFET Driver Module works like a power switch. Microcontrollers such as Arduinos or Raspberry Pis can only send out very weak signals just enough to turn on a tiny light or send data, but not enough to drive motors, long LED strips, or other power-hungry devices. That’s where the MOSFET module comes in: when the microcontroller sends a signal to the SIG pin, it “opens the gate” inside the MOSFET. This connects the circuit through GND and allows an external high-voltage source (connected to VIN and GND) to power your component. Your load then connects to V+ and V-, which deliver that stronger external power. In short, the microcontroller provides the instructions, while the MOSFET does the heavy lifting.|
 
 <br> </br>
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier+Buttons/assets/MOSFET_01.jpg" width="1000"/>
