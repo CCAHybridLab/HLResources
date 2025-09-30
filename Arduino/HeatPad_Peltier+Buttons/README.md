@@ -162,8 +162,10 @@ Test out the code and test the heatpad to see if it feels warm.
 
 - Start by connecting the buttons to the breadboard. We will be using: (ON 🔴 & OFF 🔵) 
 - Using the jumper wires connect the (+) for the ON 🔴 to Pin 12 & the (+) for the OFF 🔵 to Pin 10.
-- Using the breadboard, connect ground to the Arduino. 
+- Using the breadboard, connect ground to the Arduino.
+- After that conect the MOSFET to the Arduino using SIG on Pin 13 and GND to the breadboard.
 - Connect your Arduino to your laptop.
+- Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
 - Copy the code below and read the comments to understand how it works. 
 <br> </br>
 > 💡 **Tip:** Always double-check your wiring before powering on your circuit to avoid damaging components.
