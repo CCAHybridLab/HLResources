@@ -32,8 +32,6 @@
     Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
   </p>
   <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
-## something idk
- ### Subtitle
 </details>
 
 
@@ -83,6 +81,33 @@ For this project, connect the potentiometer to the arduino and bread board as fo
 Terminal 1 to GND
 Terminal 2 to output
 Terminal 3 to input
+
+  <p>
+   When we connect our potentiometer to the Arduino, we can read it's output values with the following program:
+   
+  </p>
+  
+**Arduino Code:** <br />
+```C++
+//Constants:
+  const int potPin = A0;
+
+//Variables:
+  int potVal;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(potPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  potVal = analogRead(potPin);
+  Serial.println(potVal);
+  delay(100);
+}
+```
 
 <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
 
