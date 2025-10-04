@@ -221,7 +221,7 @@ Test out the code and look at the <strong> Serial Monitor </strong> to see if th
 
 - Start by connecting a Peltier to another MOSFET Driver using V- (for ground) ⚫ and V+ (for power) 🔴. 
 - Next connect the barrel jack to the MOSFET using VIN & GND.
--   
+- Next connect the heatpad to the 
 - Connect your Arduino to your laptop.
 - Power the MOSFET using a 5V - 12V / 1A external power supply plugged into the barrel jack. 
 - Copy the code below and read the comments to understand how it works. 
