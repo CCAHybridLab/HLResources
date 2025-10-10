@@ -1,76 +1,75 @@
-//Constants:
-  const int rLedPin = 9;
-  const int gLedPin = 6;
-  const int bLedPin = 3;
+// Constants:
+const int rLedPin = 9;
+const int gLedPin = 6;
+const int bLedPin = 3;
 
-  const int rPotPin = A0;
-  const int gPotPin = A2;
-  const int bPotPin = A4;
+const int rPotPin = A0;
+const int gPotPin = A2;
+const int bPotPin = A4;
+
+const int potMin = 100;
+const int potMax = 1000;
 
 void setup() {
   Serial.begin(9600);
-  // put your setup code here, to run once:
+
   pinMode(rLedPin, OUTPUT);
   pinMode(gLedPin, OUTPUT);
   pinMode(bLedPin, OUTPUT);
-
-  pinMode(rPotPin, INPUT);
-  pinMode(gPotPin, INPUT);
-  pinMode(bPotPin, INPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   updateRed();
   updateGreen();
   updateBlue();
 
-  delay(200);
+  delay(200);  // Main loop delay
+}
+
+// Reads averaged analog value over a short duration
+int readAveragedAnalog(int pin, int durationMs) {
+  unsigned long startTime = millis();
+  long total = 0;
+  int count = 0;
+
+  while (millis() - startTime < durationMs) {
+    total += analogRead(pin);
+    count++;
+    delay(5);  // Small delay between samples
+  }
+
+  return total / count;
 }
 
 void updateRed() {
-  int valueRedPot = analogRead(rPotPin);
-  int valueRed = map(valueRedPot, 100, 950, 0, 255);
+  int valueRedPot = readAveragedAnalog(rPotPin, 50);  // Averaging over 50 ms
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
 
-  // Serial.print("RedPot: ");
-  // Serial.println(valueRedPot);
-  // Serial.print("RedLEDVal: ");
-  // Serial.println(valueRed);
-  // Serial.println("----------");
-
-  if (valueRedPot <= 100) {
-    valueRed = 0;
-  }
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
 
   analogWrite(rLedPin, valueRed);
-  delay(100);
 }
 
 void updateGreen() {
-  int valueGreenPot = analogRead(gPotPin);
-  int valueGreen = map(valueGreenPot, 100, 950, 0, 255);
-
-  if (valueGreenPot <= 100) {
-    valueGreen = 0;
-  }
+  int valueGreenPot = readAveragedAnalog(gPotPin, 50);
+  int valueGreen = map(valueGreenPot, potMin, potMax, 0, 255);
+  if (valueGreenPot <= potMin) valueGreen = 0;
+  if (valueGreenPot >= potMax) valueGreen = 255;
 
   analogWrite(gLedPin, valueGreen);
-  delay(100);
 }
 
 void updateBlue() {
-  int valueBluePot = analogRead(bPotPin);
-  int valueBlue = map(valueBluePot, 100, 950, 0, 255);
+  int valueBluePot = readAveragedAnalog(bPotPin, 50);
+  int valueBlue = map(valueBluePot, potMin, potMax, 0, 255);
+  if (valueBluePot <= potMin) valueBlue = 0;
+  if (valueBluePot >= potMax) valueBlue = 255;
 
-  Serial.print("BluePot: ");
-  Serial.println(valueBluePot);
-  Serial.print("BlueLEDVal: ");
-  Serial.println(valueBlue);
-  Serial.println("----------");
-
-  if (valueBluePot <= 100) {
-    valueBlue = 0;
-  }
   analogWrite(bLedPin, valueBlue);
-  delay(100);
 }
