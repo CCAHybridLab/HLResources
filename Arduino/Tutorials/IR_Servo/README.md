@@ -1,3 +1,6 @@
+# IR Powerpoint 
+https://docs.google.com/presentation/d/1pwWoWAC8IbRYOS_gKf3Ez1INomQpuq-z/edit?slide=id.p9#slide=id.p9
+
 # <b> Potentiometer + Diffused RGB LED </b> 
 |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_01.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad_Fritzing.jpg" width="600"/>|
 |--|--| 
