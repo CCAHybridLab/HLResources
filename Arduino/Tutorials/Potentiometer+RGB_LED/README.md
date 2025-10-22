@@ -31,8 +31,42 @@
   <br>
   <p>
     Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
+   
+The potentiometer has 3 terminals-- the two outer terminals are fixed, while the middle terminal is variable.
+ </p>
+
+For this project, connect the potentiometer to the arduino and bread board as follows:
+
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/c60550c68361cf4cfb2a90c3e3447d3c2d78a2c3/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-pins.jpg" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/c60550c68361cf4cfb2a90c3e3447d3c2d78a2c3/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-arduino-wiring.png" width="600"/> |
+|:---|:---:|
+
+
+  <p>
+   When we connect our potentiometer to the Arduino, we can read it's output values with the following program:
+   
   </p>
-  <img src="path/to/image.jpg" width="500" alt="Wiring diagram for step 1">
+  
+**Arduino Code:** <br />
+```C++
+//Constants:
+  const int potPin = A0;
+
+//Variables:
+  int potVal;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(potPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  potVal = analogRead(potPin);
+  Serial.println(potVal);
+  delay(100);
+}
+```
 </details>
 
 
@@ -109,8 +143,6 @@ void loop() {
   delay(100);
 }
 ```
-
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/MOSFET.jpg" width="1000"/>
 
 ## 🔴 Step 3: Connecting the Electric Heat Pad to the MOSFET Driver
 Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless-steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects.
