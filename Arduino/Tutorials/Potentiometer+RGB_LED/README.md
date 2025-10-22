@@ -1,5 +1,6 @@
 # <b> Potentiometer + Diffused RGB LED </b> 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/67ee9a4bda74d94f8fefea2a7402bcb5880a7f00/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-rgbLED.png" width="600"/>
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/fa7a3add5fc75af1b4023a3aabdd741d9873b29a/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/IMG_0090.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/67ee9a4bda74d94f8fefea2a7402bcb5880a7f00/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-rgbLED.png" width="600"/> |
+|:---|:---:|
 
 
  ## ⚙️ Equipment & Components
