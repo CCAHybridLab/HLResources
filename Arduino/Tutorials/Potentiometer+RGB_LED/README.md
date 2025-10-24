@@ -51,23 +51,39 @@ For this project, connect the potentiometer to the arduino and bread board as fo
   
 **Arduino Code:** <br />
 ```C++
-//Constants:
-  const int potPin = A0;
+// Constants:
+const int rLedPin = 9;
 
-//Variables:
-  int potVal;
+const int rPotPin = A0;
+
+const int potMin = 100;
+const int potMax = 1000;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(potPin, INPUT);
+
+  pinMode(rLedPin, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  potVal = analogRead(potPin);
-  Serial.println(potVal);
-  delay(100);
+  updateRed();
+
+  delay(200);  // Main loop delay
+}
+
+void updateRed() {
+  int valueRedPot = analogRead(rPotPin));  //reading data from the red pot
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
+
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
+
+  analogWrite(rLedPin, valueRed);
 }
 ```
 </details>
@@ -86,13 +102,14 @@ void loop() {
   </summary>
   <br>
   
-  Most heating elements on the market demand high power and are often impractical for hobbyists and makers. The Adafruit 10cm x 5cm Heating Pad is different. Powered by 5V, its stainless  steel fibers generate heat in a thin, flexible fabric—perfect for wrapping, bending, or integrating into wearable projects.
+  Next we want to actually show that value change created by the potentiometer by adding an LED that we can adjust the brightness of. Single color RGB leds only have two legs. Copy the set up shown below. 
   
-  The pad runs safely on 5V / 1A, but for stronger heating, it can be driven with up to 12V, 1A. ⚠️ for warnings or cautions
   
   <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/Heatpad.jpg" width="500"/>
   
-  Here is a video further explaing the mechanics of the heatpad (https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/) 
+Now is when we need to convert the data we are reading from the potentiometer into signals that can be sent to the LED. For this we will “map” the large set of data from the potentiometer (0-1023) to the smaller set sent to the LED (0-255), think of it like scaling the numbers to translate it between elements. 
+
+Potentiometers can unfortunately not always read accurately at the high and low ends of the spectrum, so here we eliminate that issue by setting a minimum and maximum for the potentiometer data. This allows any value over 1000 to equal 255 on the LED and any value under 100 to be 0. Then we just have to send the data to the LED by “writing” to its pin! 
   
   **Arduino Code:** <br /> 
   ```C++
