@@ -143,6 +143,7 @@ void updateRed() {
      <h2> Step 3: Putting it all together! </h2>
   </summary>
   <br>
+ 
   Okay, now let’s add the rest! Since we are trying to change a single bulb, we’ll need to use an RGB LED, this has 4 pins instead of 2, the long one is now ground, (make sure this is a common cathode bulb!) and the other 3 correlate to data for each color. Adding the potentiometers and LEDs for green and blue is our last hardware step. 
   
   
@@ -150,66 +151,85 @@ void updateRed() {
  <img src="https://github.com/CCAHybridLab/HLResources/blob/fa7a3add5fc75af1b4023a3aabdd741d9873b29a/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/IMG_0090.png" width="325" /> |
   |:---|:---|:---:|
 
+As mentioned before, potentiometer readings are not always stable. To combat this further, we can add an averaging system. This is done by creating an integer that will read data from the potentiometer for a certain amount of time, and then divide the data by how long it was counting to receive an average. Now we have to replace where analogRead was in the last example with readAveragedAnalog so we are only using the averaged numbers when writing to the LED’s. Since we connected the RGB LED on the breadboard to where our regular LED’s are, we only need to write to one pin per color. All that’s left is to make green and blue versions of each command! 
   
   **Arduino Code:** <br /> 
   ```C++
-  // Define pins for the MOS Module
-  const int heatPadPin = 13;        // Output signal to the MOS Module
-  const int buttonOnPin = 2;       // Button to turn the heating pad ON
-  const int buttonOffPin = 3;      // Button to turn the heating pad OFF
-  const int peltierPin = 9;        // Output signal to the peltier
-  
-  
-  // Timer variables
-  unsigned long heatPadStartTime = 0;
-  const unsigned long maxOnDuration = 120000; // 2 minutes in milliseconds
-  
-  
-  bool heatPadOn = false;
-  
-  
-  void setup() {
-   // Set pin modes
-   pinMode(heatPadPin, OUTPUT);      // MOS Module control pin
-   pinMode(peltierPin, OUTPUT);      // MOS Module control pin
-   pinMode(buttonOnPin, INPUT_PULLUP);  // Button ON with pull-up resistor
-   pinMode(buttonOffPin, INPUT_PULLUP); // Button OFF with pull-up resistor
-  
-  
-   // Ensure heating pad starts OFF
-   digitalWrite(heatPadPin, LOW);
+  // Constants:
+const int rLedPin = 9;
+const int gLedPin = 6;
+const int bLedPin = 3;
+
+const int rPotPin = A0;
+const int gPotPin = A2;
+const int bPotPin = A4;
+
+const int potMin = 100;
+const int potMax = 1000;
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(rLedPin, OUTPUT);
+  pinMode(gLedPin, OUTPUT);
+  pinMode(bLedPin, OUTPUT);
+}
+
+void loop() {
+  updateRed();
+  updateGreen();
+  updateBlue();
+
+  delay(200);  // Main loop delay
+}
+
+// Reads averaged analog value over a short duration
+int readAveragedAnalog(int pin, int durationMs) {
+  unsigned long startTime = millis();
+  long total = 0;
+  int count = 0;
+
+  while (millis() - startTime < durationMs) {
+    total += analogRead(pin);
+    count++;
+    delay(5);  // Small delay between samples
   }
-  
-  
-  void loop() {
-   // Read button states
-   int buttonOnState = digitalRead(buttonOnPin);
-   int buttonOffState = digitalRead(buttonOffPin);
-  
-  
-   // Turn on the heating pad if the ON button is pressed
-   if (buttonOnState == LOW && !heatPadOn) {
-     digitalWrite(heatPadPin, HIGH);
-     digitalWrite(peltierPin, HIGH);
-     heatPadOn = true;
-     heatPadStartTime = millis(); // Record the start time
-   }
-  
-  
-   // Turn off the heating pad if the OFF button is pressed
-   if (buttonOffState == LOW && heatPadOn) {
-     digitalWrite(heatPadPin, LOW);
-     digitalWrite(peltierPin, LOW);
-     heatPadOn = false;
-   }
-  
-  
-   // Check if the heating pad has been on for too long
-   if (heatPadOn && (millis() - heatPadStartTime >= maxOnDuration)) {
-     digitalWrite(heatPadPin, LOW);
-     digitalWrite(peltierPin, LOW);
-     heatPadOn = false;
-  }
+
+  return total / count;
+}
+
+void updateRed() {
+  int valueRedPot = readAveragedAnalog(rPotPin, 50);  // Averaging over 50 ms
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
+
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
+
+  analogWrite(rLedPin, valueRed);
+}
+
+void updateGreen() {
+  int valueGreenPot = readAveragedAnalog(gPotPin, 50);
+  int valueGreen = map(valueGreenPot, potMin, potMax, 0, 255);
+  if (valueGreenPot <= potMin) valueGreen = 0;
+  if (valueGreenPot >= potMax) valueGreen = 255;
+
+  analogWrite(gLedPin, valueGreen);
+}
+
+void updateBlue() {
+  int valueBluePot = readAveragedAnalog(bPotPin, 50);
+  int valueBlue = map(valueBluePot, potMin, potMax, 0, 255);
+  if (valueBluePot <= potMin) valueBlue = 0;
+  if (valueBluePot >= potMax) valueBlue = 255;
+
+  analogWrite(bLedPin, valueBlue);
+}
   ```
   <br/>
 </details>
