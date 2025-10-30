@@ -53,23 +53,24 @@ For this project, connect the potentiometer to the arduino and bread board as fo
 ```C++
 // Constants:
 
-const int PotPin = A0;
+const int PotPin = A4;
 
+// Runs once when the Arduino turns on, resets, or after code upload
 void setup() {
   Serial.begin(9600);
 }
 
+// Runs infinitely
 void loop() {
-  delay(200);  // Main loop delay
+  updatePot(); // call this function that runs all the potentiometer code
+  delay(200); // wait 200 ms 
 }
 
-void updateRed() {
-  int valuePot = analogRead(PotPin));  //reading data from the pot
+void updatePot() {
+  int valuePot = analogRead(PotPin);  //reading data from the pot
 
   Serial.print("Pot: ");
   Serial.println(valuePot);
-  Serial.println("----------");
-
 }
 ```
 </details>
@@ -101,9 +102,9 @@ Potentiometers can unfortunately not always read accurately at the high and low 
   **Arduino Code:** <br /> 
   ```C++
  // Constants:
-const int rLedPin = 9;
+const int rLedPin = 3;
 
-const int rPotPin = A0;
+const int rPotPin = A4;
 
 const int potMin = 100;
 const int potMax = 1000;
@@ -115,12 +116,12 @@ void setup() {
 }
 
 void loop() {
-  updateRed();
+  updateRedPot();
 
   delay(200);  // Main loop delay
 }
 
-void updateRed() {
+void updateRedPot() {
   int valueRedPot = analogRead(rPotPin));  //reading data from the red pot
   int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
   if (valueRedPot <= potMin) valueRed = 0;
