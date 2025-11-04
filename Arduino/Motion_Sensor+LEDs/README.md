@@ -37,7 +37,7 @@ The potentiometer has 3 terminals-- the two outer terminals are fixed, while the
 
 For this project, connect the potentiometer to the arduino and bread board as follows:
 
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/c60550c68361cf4cfb2a90c3e3447d3c2d78a2c3/Arduino/Motion_Sensor+LEDs/assets/PIR Motion_bb.jpg" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Motion_Sensor+LEDs/assets/PIR Motion_bb.jpg" width="600"/> |
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion_bb.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion_bb.jpg" width="600"/> |
 |:---|:---:|
 
 
