@@ -1,184 +1,236 @@
-# <b> Electric Heatpad + Peltier Thermo-Electric Cooler </b> 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Ultrasonic_Sensor+OLED-Display/wiring-ultrasonic-distance+OLED-display.png" width="600"/>|
-|--|--|
+# <b> Potentiometer + Diffused RGB LED </b> 
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/fa7a3add5fc75af1b4023a3aabdd741d9873b29a/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/IMG_0090.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/67ee9a4bda74d94f8fefea2a7402bcb5880a7f00/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-rgbLED.png" width="600"/> |
+|:---|:---:|
 
-## Equipment
-Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinkercad.com/things/cYTtEqcJcwH-amazing-fulffy/editel?tenant=circuits)
-- [Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)
-- [Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)
-- [Buttons](https://www.adafruit.com/product/1481)
-- [MOSFET Module Driver](https://www.adafruit.com/product/1481)
-- [Electric Heatpad](https://www.adafruit.com/product/1481)
-- [Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)
 
-## 🔴 Step 1: Buttons
-Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
+ ## ⚙️ Equipment & Components
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
+<p>
+  This project uses a potentiometer to control RGB LED output.
+</p>
 
-#### Move on to Step 2 once you've mimiced the diagram above. 
-## Step 2: MOSFET Module Driver
-The IRF520 MOSFET Driver Module is used to drive and control MOSFETs in various electronic circuits. Specifically, it is often used in situations where you need to provide high-power to devices or components (like motors, LEDs, or other loads) with a lower-power control signal, typically from a microcontroller (e.g., Arduino, Raspberry Pi). So, the module allows you to use a small control signal (like from a microcontroller or an Arduino) to switch the MOSFET on and off, which in turn controls a larger, high-power load (like a motor, LED strip, etc.).
-### How does the MOSFET Module Driver work?
-In order to send a high-voltage source of power to your components, you first need to power the MOSFET Module in order to "open the gate" to the high voltage. So, an Arduino (or microcontroller) sends a signal to the SIG pin on the MOSFET which then powers the driver and creates a circuit rhough conecting it to the GND pin and back to the Arduino.
+| Component | Quantity | Notes |
+|:---|:---:|:---|
+| **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
+| **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 2 | For building the circuit. |
+| **[Diffused RGB (Tri-Color) LED - CATHODE](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Our changing variable. 🚨 |
+| **[Red LED](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Visual aid for red potentiometer. |
+| **[Green LED](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Visual aid for green potentiometer. |
+| **[Blue LED](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Visual aid for blue potentiometer. |
+| **[10K Potentiometer](https://www.adafruit.com/product/562?srsltid=AfmBOoqtB6Lbhd8nUAGzxMfThQJemVqiWrplyxYimvI-uLNBoEpAtYPYYGA)** | 3 | Controls our LED output. |
+| **[220 ohm Resistor](https://www.adafruit.com/product/2780?srsltid=AfmBOopmkZkIUP5s_hycNqkQo98pfRENfjLETCFsG8mRPr04hxSWfXWS)** | 3 | Controls electrical curent to the LED. |
+| **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
+| **[(Optional) Potemtiometer Cap](https://www.adafruit.com/product/1481)** | 3 | For easier control of the potentiometer; one per color. |
 
-Across the board of the driver are the VIN pin and GND pins. These pins are used to supply your output with a high-voltage source of power. You would attached your high-source of power (9V battery pack, 12v power pack, etc) to these pins. 
+  <p>
+    <strong>Important Note:</strong>
+ Always make sure you have all equipment before starting a project.
+  </p>
 
-Lastly, the <b> V- & V+ </b> pins on the driver are used as the positive and negative for your ouput source. 
+<details>
+  <summary>
+     <h2> Step 1: Understanding the Potentiometer </h2>
+  </summary>
+  <br>
+  <p>
+    Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
+   
+The potentiometer has 3 terminals-- the two outer terminals are fixed, while the middle terminal is variable.
+ </p>
 
-<b> *Please note, if the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through. </b>
+For this project, connect the potentiometer to the arduino and bread board as follows:
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="550"/>
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/c60550c68361cf4cfb2a90c3e3447d3c2d78a2c3/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-pins.jpg" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot%20and%20arduino%20example.png" width="600"/> |
+|:---|:---:|
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-### How to the calculate voltage
-Distance = (Speed x Time) / 2 <br /> <br /> 
-Example: Let’s say the Echo pin was HIGH for 2ms. If we want the get the distance result in **cm**, we can convert the speed of sound value from 340m/s to 34cm/ms. <br />
-- Speed = 34cm/ms <br />
-- Time = 2ms <br />
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+  <p>
+   When we connect our potentiometer to the Arduino, we can read it's output values with the following program:
+   
+  </p>
+  
+**Arduino Code:** <br />
 ```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
+// Constants:
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
+const int PotPin = A4;
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+// Runs once when the Arduino turns on, resets, or after code upload
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
 }
+
+// Runs infinitely
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  updatePot(); // call this function that runs all the potentiometer code
+  delay(200); // wait 200 ms 
+}
+
+void updatePot() {
+  int valuePot = analogRead(PotPin);  //reading data from the pot
+
+  Serial.print("Pot: ");
+  Serial.println(valuePot);
 }
 ```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 3: Electric Heating Pad
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
-### How does the Electric Heating Pad work?
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Heat_Pad.jpg" width="650"/>
+</details>
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-### How to the calculate distance
-Distance = (Speed x Time) / 2 <br /> <br /> 
-Example: Let’s say the Echo pin was HIGH for 2ms. If we want the get the distance result in **cm**, we can convert the speed of sound value from 340m/s to 34cm/ms. <br />
-- Speed = 34cm/ms <br />
-- Time = 2ms <br />
+<p>
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
+ 
+</p>
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+
+<details>
+ 
+  <summary>
+     <h2> Step 2: Connecting the Potentiometer + LED </h2>
+  </summary>
+  <br>
+  
+  Next we want to actually show that value change created by the potentiometer by adding an LED that we can adjust the brightness of. Single color RGB leds only have two legs. Copy the set up shown below. 
+  
+  
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot%20and%20led%20example.png" width="600"/> |
+|:---|:---:|
+  
+Now is when we need to convert the data we are reading from the potentiometer into signals that can be sent to the LED. For this we will “map” the large set of data from the potentiometer (0-1023) to the smaller set sent to the LED (0-255), think of it like scaling the numbers to translate it between elements. 
+
+Potentiometers can unfortunately not always read accurately at the high and low ends of the spectrum, so here we eliminate that issue by setting a minimum and maximum for the potentiometer data. This allows any value over 1000 to equal 255 on the LED and any value under 100 to be 0. Then we just have to send the data to the LED by “writing” to its pin! 
+  
+  **Arduino Code:** <br /> 
+  ```C++
+ // Constants:
+const int rLedPin = 3;
+
+const int rPotPin = A4;
+
+const int potMin = 100;
+const int potMax = 1000;
+
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
+
+  pinMode(rLedPin, OUTPUT);
 }
+
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  updateRedPot();
+
+  delay(200);  // Main loop delay
 }
-```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 4: Peltier Thermo-Electric Cooler
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
-### How does the Peltier work?
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="650"/>
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+void updateRedPot() {
+  int valueRedPot = analogRead(rPotPin));  //reading data from the red pot
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
+  analogWrite(rLedPin, valueRed);
+}
+  ```
+  
+</details>
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+<details>
+  <summary>
+     <h2> Step 3: Putting it all together! </h2>
+  </summary>
+  <br>
+ 
+  Okay, now let’s add the rest! Since we are trying to change a single bulb, we’ll need to use an RGB LED, this has 4 pins instead of 2, the long one is now ground, (make sure this is a common cathode bulb!) and the other 3 correlate to data for each color. Adding the potentiometers and LEDs for green and blue is our last hardware step. 
+ 
+
+ |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/common_cathode_rgbled.jpg" width="275"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-rgbLED.png" width="350"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/fa7a3add5fc75af1b4023a3aabdd741d9873b29a/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/IMG_0090.png" width="325" /> |
+ |:---|:---:|:---|
+  
+
+As mentioned before, potentiometer readings are not always stable. To combat this further, we can add an averaging system. This is done by creating an integer that will read data from the potentiometer for a certain amount of time, and then divide the data by how long it was counting to receive an average. Now we have to replace where analogRead was in the last example with readAveragedAnalog so we are only using the averaged numbers when writing to the LED’s. Since we connected the RGB LED on the breadboard to where our regular LED’s are, we only need to write to one pin per color. All that’s left is to make green and blue versions of each command! 
+  
+  **Arduino Code:** <br /> 
+  ```C++
+  // Constants:
+const int rLedPin = 9;
+const int gLedPin = 6;
+const int bLedPin = 3;
+
+const int rPotPin = A0;
+const int gPotPin = A2;
+const int bPotPin = A4;
+
+const int potMin = 100;
+const int potMax = 1000;
+
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
+
+  pinMode(rLedPin, OUTPUT);
+  pinMode(gLedPin, OUTPUT);
+  pinMode(bLedPin, OUTPUT);
 }
+
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  updateRed();
+  updateGreen();
+  updateBlue();
+
+  delay(200);  // Main loop delay
 }
-```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 5: Put them all together!
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="500"/>
-<br/>
+
+// Reads averaged analog value over a short duration
+int readAveragedAnalog(int pin, int durationMs) {
+  unsigned long startTime = millis();
+  long total = 0;
+  int count = 0;
+
+  while (millis() - startTime < durationMs) {
+    total += analogRead(pin);
+    count++;
+    delay(5);  // Small delay between samples
+  }
+
+  return total / count;
+}
+
+void updateRed() {
+  int valueRedPot = readAveragedAnalog(rPotPin, 50);  // Averaging over 50 ms
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
+
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
+
+  analogWrite(rLedPin, valueRed);
+}
+
+void updateGreen() {
+  int valueGreenPot = readAveragedAnalog(gPotPin, 50);
+  int valueGreen = map(valueGreenPot, potMin, potMax, 0, 255);
+  if (valueGreenPot <= potMin) valueGreen = 0;
+  if (valueGreenPot >= potMax) valueGreen = 255;
+
+  analogWrite(gLedPin, valueGreen);
+}
+
+void updateBlue() {
+  int valueBluePot = readAveragedAnalog(bPotPin, 50);
+  int valueBlue = map(valueBluePot, potMin, potMax, 0, 255);
+  if (valueBluePot <= potMin) valueBlue = 0;
+  if (valueBluePot >= potMax) valueBlue = 255;
+
+  analogWrite(bLedPin, valueBlue);
+}
+  ```
+  <br/>
+</details>
