@@ -87,10 +87,9 @@ void updatePot() {
   <br>
   
   Next we want to actually show that value change created by the potentiometer by adding an LED that we can adjust the brightness of. Single color RGB leds only have two legs. Copy the set up shown below. 
-  
-  
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
-|:---|:---:|
+
+ |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" />| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
+ |:---|:---:|:---|
   
 Now is when we need to convert the data we are reading from the potentiometer into signals that can be sent to the LED. For this we will “map” the large set of data from the potentiometer (0-1023) to the smaller set sent to the LED (0-255), think of it like scaling the numbers to translate it between elements. 
 
@@ -143,12 +142,10 @@ void updateRedPot() {
   <br>
  
   Okay, now let’s add the rest! Since we are trying to change a single bulb, we’ll need to use an RGB LED, this has 4 pins instead of 2, the long one is now ground, (make sure this is a common cathode bulb!) and the other 3 correlate to data for each color. Adding the potentiometers and LEDs for green and blue is our last hardware step. 
- 
 
- |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/common_cathode_rgbled.jpg" width="275"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/pot-rgbLED.png" width="350"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/fa7a3add5fc75af1b4023a3aabdd741d9873b29a/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/IMG_0090.png" width="325" /> |
- |:---|:---:|:---|
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion + Leds.jpg" width="600"/> |
+|:---|:---:|
   
-
 As mentioned before, potentiometer readings are not always stable. To combat this further, we can add an averaging system. This is done by creating an integer that will read data from the potentiometer for a certain amount of time, and then divide the data by how long it was counting to receive an average. Now we have to replace where analogRead was in the last example with readAveragedAnalog so we are only using the averaged numbers when writing to the LED’s. Since we connected the RGB LED on the breadboard to where our regular LED’s are, we only need to write to one pin per color. All that’s left is to make green and blue versions of each command! 
   
   **Arduino Code:** <br /> 
