@@ -1,6 +1,7 @@
 # <b> Potentiometer + Diffused RGB LED </b> 
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion + Leds.jpg" width="600"/> |
 |:---|:---:|
+
 
 
  ## ⚙️ Equipment & Components
