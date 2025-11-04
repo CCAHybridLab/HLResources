@@ -137,7 +137,7 @@ void updateRedPot() {
 
 <details>
   <summary>
-     <h2> Step 3: Putting it all together! </h2>
+     <h2> Step 3: Combining all components! </h2>
   </summary>
   <br>
  
@@ -152,80 +152,67 @@ As mentioned before, potentiometer readings are not always stable. To combat thi
   
   **Arduino Code:** <br /> 
   ```C++
-  // Constants:
-const int rLedPin = 9;
-const int gLedPin = 6;
-const int bLedPin = 3;
+ // Define pins
+const int PIRPin = 2;
+const int BlueLEDPin = 10;
+const int YellowLEDPin = 11;
+const int OrangeLEDPin = 12;
+const int RedLEDPin = 13;
 
-const int rPotPin = A0;
-const int gPotPin = A2;
-const int bPotPin = A4;
-
-const int potMin = 100;
-const int potMax = 1000;
+bool isMotionHandled = false;  // Flag to track if motion has already been handled
 
 void setup() {
   Serial.begin(9600);
-
-  pinMode(rLedPin, OUTPUT);
-  pinMode(gLedPin, OUTPUT);
-  pinMode(bLedPin, OUTPUT);
+  pinMode(PIRPin, INPUT);
+  pinMode(BlueLEDPin, OUTPUT);
+  pinMode(YellowLEDPin, OUTPUT);
+  pinMode(OrangeLEDPin, OUTPUT);
+  pinMode(RedLEDPin, OUTPUT);
 }
 
 void loop() {
-  updateRed();
-  updateGreen();
-  updateBlue();
+  int pirState = digitalRead(PIRPin);
 
-  delay(200);  // Main loop delay
-}
+  // motion triggered from no motion handling
+  if (pirState == HIGH && !isMotionHandled) {
+    Serial.println("motion FIRST triggered");
+    // Trigger LEDs once per motion event
+    isMotionHandled = true;
 
-// Reads averaged analog value over a short duration
-int readAveragedAnalog(int pin, int durationMs) {
-  unsigned long startTime = millis();
-  long total = 0;
-  int count = 0;
-
-  while (millis() - startTime < durationMs) {
-    total += analogRead(pin);
-    count++;
-    delay(5);  // Small delay between samples
+    Serial.println("Motion detected!");
+    // LEDs loading up
+    digitalWrite(BlueLEDPin, HIGH);
+    delay(200);
+    digitalWrite(YellowLEDPin, HIGH);
+    delay(200);
+    digitalWrite(OrangeLEDPin, HIGH);
+    delay(200);
+    digitalWrite(RedLEDPin, HIGH);
+    delay(1000);
+  } 
+  
+  if (pirState == LOW && isMotionHandled) {
+    Serial.println("motion DONE triggerd");
+    digitalWrite(RedLEDPin, LOW);
+    delay(200);
+    digitalWrite(OrangeLEDPin, LOW);
+    delay(200);
+    digitalWrite(YellowLEDPin, LOW);
+    delay(200);
+    digitalWrite(BlueLEDPin, LOW);
   }
 
-  return total / count;
-}
+  if (pirState == HIGH && isMotionHandled) {
+    Serial.println("DETECTING MOTION");
+  }
 
-void updateRed() {
-  int valueRedPot = readAveragedAnalog(rPotPin, 50);  // Averaging over 50 ms
-  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
-  if (valueRedPot <= potMin) valueRed = 0;
-  if (valueRedPot >= potMax) valueRed = 255;
+  // Reset the flag once PIR returns to LOW
+  if (pirState == LOW) {
+    Serial.println("NO MOTION");
+    isMotionHandled = false;
+  }
 
-  Serial.print("RedPot: ");
-  Serial.println(valueRedPot);
-  Serial.print("RedLEDVal: ");
-  Serial.println(valueRed);
-  Serial.println("----------");
-
-  analogWrite(rLedPin, valueRed);
-}
-
-void updateGreen() {
-  int valueGreenPot = readAveragedAnalog(gPotPin, 50);
-  int valueGreen = map(valueGreenPot, potMin, potMax, 0, 255);
-  if (valueGreenPot <= potMin) valueGreen = 0;
-  if (valueGreenPot >= potMax) valueGreen = 255;
-
-  analogWrite(gLedPin, valueGreen);
-}
-
-void updateBlue() {
-  int valueBluePot = readAveragedAnalog(bPotPin, 50);
-  int valueBlue = map(valueBluePot, potMin, potMax, 0, 255);
-  if (valueBluePot <= potMin) valueBlue = 0;
-  if (valueBluePot >= potMax) valueBlue = 255;
-
-  analogWrite(bLedPin, valueBlue);
+  delay(50); // Slight delay to avoid excessive polling
 }
   ```
   <br/>
