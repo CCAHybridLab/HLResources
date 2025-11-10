@@ -222,5 +222,5 @@ void loop() {
   </summary>
 To help secure the Peltier module and keep it from shifting around, we’ve included a custom 3D-printed case design. You can find the print file in the “3D Assets” folder of this tutorial. As a bonus, the file is already set up for easy printing on a Bambu printer, but you can adapt it for other 3D printers as well.
 <br> </br>
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/HeatPad_Peltier%2BButtons/assets/3D_Peltier.png" width="500"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/3D_model.jpg" width="500"/>
 </details>
