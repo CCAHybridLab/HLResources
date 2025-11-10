@@ -46,36 +46,35 @@ For this project, connect the motion sensor to the arduino and bread board as fo
   
 **Arduino Code:** <br />
 ```C++
-// Constants:
+// Define the PIR sensor pin
+const int PIRPin = 2;
 
-const int PotPin = A4;
-
-// Runs once when the Arduino turns on, resets, or after code upload
 void setup() {
   Serial.begin(9600);
+  pinMode(PIRPin, INPUT);
+  Serial.println("PIR Sensor is warming up...");
+  delay(2000); // Give the sensor time to stabilize
+  Serial.println("Ready to detect motion!");
 }
 
-// Runs infinitely
 void loop() {
-  updatePot(); // call this function that runs all the potentiometer code
-  delay(200); // wait 200 ms 
-}
+  int pirState = digitalRead(PIRPin);
 
-void updatePot() {
-  int valuePot = analogRead(PotPin);  //reading data from the pot
+  if (pirState == HIGH) {
+    Serial.println("Motion detected");
+  } else {
+    Serial.println("No motion");
+  }
 
-  Serial.print("Pot: ");
-  Serial.println(valuePot);
+  delay(500); // Adjust delay for how fast you want updates
 }
 ```
-</details>
 
 <p>
-
-
- 
+Run the code above and check the serial monitor to see if it reads 'motion detected' and 'no motion'. If the serial monitor is able to succesfully detect boths states of the PIR sensor, congrats you did it! Move on to step 2. 
 </p>
 
+</details>
 
 <details>
  
