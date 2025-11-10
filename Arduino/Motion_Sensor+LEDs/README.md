@@ -30,19 +30,17 @@
   </summary>
   <br>
   <p>
-    Potentiometers are variable resistors that have a number of useful applications when building a curciut. Remember, a resistor controls the amount of electrical current a component is recieving-- potentiometers allow us to alter that input!
-   
-The potentiometer has 3 terminals-- the two outer terminals are fixed, while the middle terminal is variable.
+   PIR (Passive Infrared) sensors are designed to detect motion at distances of up to approximately 5 meters. They’re easy to use: simply power the sensor with 5V, and its onboard voltage regulator takes care of the rest. The sensor provides a digital output with two states: HIGH and LOW. When motion is detected, the output goes HIGH and remains in that state for about 2 seconds before returning to LOW.
  </p>
 
-For this project, connect the potentiometer to the arduino and bread board as follows:
+For this project, connect the motion sensor to the arduino and bread board as follows:
 
 | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor.jpeg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion_bb.jpg" width="600"/> |
 |:---|:---:|
 
 
   <p>
-   When we connect our potentiometer to the Arduino, we can read it's output values with the following program:
+   When we connect the motion sensor to the Arduino, we can read it's output values with the following program:
    
   </p>
   
