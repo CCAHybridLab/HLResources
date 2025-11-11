@@ -85,15 +85,15 @@ Run the code above and check the serial monitor to see if it reads 'motion detec
 Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
 LEDs need three key connections: power, ground, and a resistor (typically 220 Ω for warm colors and 100 Ω for cool colors). Each LED has two legs, the longer leg is the positive (anode) side and the shorter leg is the negative (cathode) side.
 <br> </br> 
-When connected to a microcontroller (like an Arduino), the LEDs get their power through digital output pins. Each pin can switch between HIGH (on) and LOW (off), sending small bursts of electrical current that make the LEDs light up. This digital control is what allows you to turn LEDs on and off in patterns using code.
-<br> </br>
 Resistors are an important part of the circuit as they limit the amount of current flowing to each LED. Without a resistor, too much current could pass through, which can burn out or damage the LED bulb. The resistor helps make sure each LED receives just the right amount of power to glow safely and evenly.
+<br> </br>
+When connected to a microcontroller (like an Arduino), the LEDs get their power through digital output pins. Each pin can switch between HIGH (on) and LOW (off), sending small bursts of electrical current that make the LEDs light up. This digital control is what allows you to turn LEDs on and off in patterns using code.
 <br> </br>
   
  |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" />| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
  |:---|:---:|:---|
 
-Once the LEDs are wired correctly, we can use the code to control how they light up. In this tutorial, each LED will turn on one after another in sequence but that’s just one example. You can program them in many creative ways! Try having them all light up at once, skip every other LED, or turn on two or three at a time. The possibilities are endless so experiment and make it your own!
+Once the LEDs are wired correctly, we can use the code to control how and when they light up. In this tutorial, each LED will turn on one after another in sequence but that’s just one example. You can program them in many creative ways! Try having them all light up at once, skip every other LED, or turn on two or three at a time. The possibilities are endless so experiment and make it your own!
   
   **Arduino Code:** <br /> 
   ```C++
