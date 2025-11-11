@@ -82,15 +82,18 @@ Run the code above and check the serial monitor to see if it reads 'motion detec
      <h2> Step 2: Creating a Parrellel Circuit + Powering LEDs </h2>
   </summary>
   <br>
-  
-  Next we want to create a circuit that can help distibute even power to LEDS and make them light up. To do this we will follow the diagram below. LEDS require power, gnd and a resistor (220 Oms for warm tones and 100 Oms for cool tones) to light up and become active. LEDs have a positive and a negative end. The power is typically the longer leg of the two. 
+ Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
+LEDs need three key connections: power, ground, and a resistor (typically 220 Ω for warm colors and 100 Ω for cool colors). Each LED has two legs, the longer leg is the positive (anode) side and the shorter leg is the negative (cathode) side.
+<br> </br> 
+When connected to a microcontroller (like an Arduino), the LEDs get their power through digital output pins. Each pin can switch between HIGH (on) and LOW (off), sending small bursts of electrical current that make the LEDs light up. This digital control is what allows you to turn LEDs on and off in patterns using code.
+<br> </br>
+Resistors are an important part of the circuit as they limit the amount of current flowing to each LED. Without a resistor, too much current could pass through, which can burn out or damage the LED bulb. The resistor helps make sure each LED receives just the right amount of power to glow safely and evenly.
+<br> </br>
   
  |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" />| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
  |:---|:---:|:---|
-  
-Now that the LEDS are wired correctly. We can use the code to light them up in a specific order. For this tutorial we will have each one turn on consecutively one after another. While we are using this as a tutorial there are numerous ways you can have the LEDS light up in sequence! You could have them all light up at once! You could skip every other one and have then have them do the reverse. Or even light up two or 3 at a time. The cerativity of LEDS is up to you and your project imagination!
 
-Potentiometers can unfortunately not always read accurately at the high and low ends of the spectrum, so here we eliminate that issue by setting a minimum and maximum for the potentiometer data. This allows any value over 1000 to equal 255 on the LED and any value under 100 to be 0. Then we just have to send the data to the LED by “writing” to its pin! 
+Once the LEDs are wired correctly, we can use the code to control how they light up. In this tutorial, each LED will turn on one after another in sequence but that’s just one example. You can program them in many creative ways! Try having them all light up at once, skip every other LED, or turn on two or three at a time. The possibilities are endless so experiment and make it your own!
   
   **Arduino Code:** <br /> 
   ```C++
