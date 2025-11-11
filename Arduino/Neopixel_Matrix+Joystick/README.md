@@ -1,5 +1,5 @@
 # <b> Neopixel Matrix + Joystick — Interactive Game </b> 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Joystick.jpeg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Matrix_Off.jpg" width="600"/>|
+|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Joystick.jpeg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Neopixel_Matrix%2BJoystick/media/Neopixel%20matrix%2Bjoystick.png" width="600"/>|
 |--|--|
 
 ## Equipment
