@@ -79,16 +79,16 @@ Run the code above and check the serial monitor to see if it reads 'motion detec
 <details>
  
   <summary>
-     <h2> Step 2: Powering LEDs + Parrellel Circuit </h2>
+     <h2> Step 2: Creating a Parrellel Circuit + Powering LEDs </h2>
   </summary>
   <br>
   
-  Next we want to actually show that value change created by the potentiometer by adding an LED that we can adjust the brightness of. Single color RGB leds only have two legs. Copy the set up shown below. 
-
+  Next we want to create a circuit that can help distibute even power to LEDS and make them light up. To do this we will follow the diagram below. LEDS require power, gnd and a resistor (220 Oms for warm tones and 100 Oms for cool tones) to light up and become active. LEDs have a positive and a negative end. The power is typically the longer leg of the two. 
+  
  |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" />| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
  |:---|:---:|:---|
   
-Now is when we need to convert the data we are reading from the potentiometer into signals that can be sent to the LED. For this we will “map” the large set of data from the potentiometer (0-1023) to the smaller set sent to the LED (0-255), think of it like scaling the numbers to translate it between elements. 
+Now that the LEDS are wired correctly. We can use the code to light them up in a specific order. For this tutorial we will have each one turn on consecutively one after another. While we are using this as a tutorial there are numerous ways you can have the LEDS light up in sequence! You could have them all light up at once! You could skip every other one and have then have them do the reverse. Or even light up two or 3 at a time. The cerativity of LEDS is up to you and your project imagination!
 
 Potentiometers can unfortunately not always read accurately at the high and low ends of the spectrum, so here we eliminate that issue by setting a minimum and maximum for the potentiometer data. This allows any value over 1000 to equal 255 on the LED and any value under 100 to be 0. Then we just have to send the data to the LED by “writing” to its pin! 
   
