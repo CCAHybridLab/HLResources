@@ -82,7 +82,7 @@ Run the code above and check the serial monitor to see if it reads 'motion detec
      <h2> Step 2: Creating a Parrellel Circuit + Powering LEDs </h2>
   </summary>
   <br>
- Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
+Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
 LEDs need three key connections: power, ground, and a resistor (typically 220 Ω for warm colors and 100 Ω for cool colors). Each LED has two legs, the longer leg is the positive (anode) side and the shorter leg is the negative (cathode) side.
 <br> </br> 
 When connected to a microcontroller (like an Arduino), the LEDs get their power through digital output pins. Each pin can switch between HIGH (on) and LOW (off), sending small bursts of electrical current that make the LEDs light up. This digital control is what allows you to turn LEDs on and off in patterns using code.
