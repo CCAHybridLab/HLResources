@@ -29,7 +29,7 @@
   </summary>
   <br>
   <p>
-   PIR (Passive Infrared) sensors are designed to detect motion at distances of up to approximately 5 meters. They’re easy to use: simply power the sensor with 5V, and its onboard voltage regulator takes care of the rest. The sensor provides a digital output with two states: HIGH and LOW. When motion is detected, the output goes HIGH and remains in that state for about 2 seconds before returning to LOW.
+   This sensor uses ultrasonic waves to detect distance. There are two transducers on the sensor: one transmits sound waves outward, and one detects the returning sound waves once they bounce off of an object. When the reciever detects these retruning waves, it produces a output signal which it then sends to your Arduino-- we can write a code that allows us to read these distances in real time!
  </p>
 
 For this project, connect the motion sensor to the arduino and bread board as follows:
@@ -39,38 +39,44 @@ For this project, connect the motion sensor to the arduino and bread board as fo
 
 
   <p>
-   When we connect the motion sensor to the Arduino, we can read it's output values with the following program:
+   To make the coding process easier, we can utilize a library that has simplified the complex operations needed to utilize this sensor. To install the NewPing Library:
+   
+   1. First open your Arduino IDE program. Then click on the Library Manager icon on the left sidebar.
+   2. Type “newping” in the search box to filter your results.
+   3. Look for the newping library created by Tim Eckel.
+   4. Click the Install button to add it to your Arduino IDE.
+   
+   When we connect the distance sensor to the Arduino, we can read it's output values with the following program:
    
   </p>
   
 **Arduino Code:** <br />
 ```C++
-// Define the PIR sensor pin
-const int PIRPin = 2;
+#include "NewPing.h"
+
+#define TRIGGER_PIN 9
+#define ECHO_PIN 10
+
+#define MAX_DISTANCE 400
+
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
 
 void setup() {
+  // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(PIRPin, INPUT);
-  Serial.println("PIR Sensor is warming up...");
-  delay(2000); // Give the sensor time to stabilize
-  Serial.println("Ready to detect motion!");
 }
 
 void loop() {
-  int pirState = digitalRead(PIRPin);
-
-  if (pirState == HIGH) {
-    Serial.println("Motion detected");
-  } else {
-    Serial.println("No motion");
-  }
-
-  delay(500); // Adjust delay for how fast you want updates
+  // put your main code here, to run repeatedly:
+  Serial.print("Distance = ");
+  Serial.print(sonar.ping_cm());
+  Serial.println(" cm");
+  delay(500);
 }
 ```
 
 <p>
-Run the code above and check the serial monitor to see if it reads 'motion detected' and 'no motion'. If the serial monitor is able to succesfully detect boths states of the PIR sensor, congrats you did it! Move on to step 2. 
+Run the code above and check the serial monitor. Place your hand in front of your sensor-- did the output change? Try moving your hand a bit farther or closer. If your distance reading gets higer or lower accordingly, congrats, you did it! Move on to step 2. 
 </p>
 
 </details>
