@@ -7,7 +7,7 @@
  ## ⚙️ Equipment & Components
 
 <p>
-  This project uses a potentiometer to control RGB LED output.
+  This project uses an ultrasonic d.
 </p>
 
 | Component | Quantity | Notes |
