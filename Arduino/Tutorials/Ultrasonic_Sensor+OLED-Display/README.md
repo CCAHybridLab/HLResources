@@ -1,5 +1,5 @@
 # Ultrasonic Distance Sensor + OLED Display
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/bfd2ba10d00b36ba7951d288e42c2c2b350f071e/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/Ultrasonic%20Distance%20%2B%20OLED%20Display_bb.jpg" width="600"/> |
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/bb51a844462a34f7b36e1c35edf2b8283f620cd7/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/IMG_0359.jpeg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/bfd2ba10d00b36ba7951d288e42c2c2b350f071e/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/Ultrasonic%20Distance%20%2B%20OLED%20Display_bb.jpg" width="600"/> |
 |:---|:---:|
 
 
@@ -14,8 +14,8 @@
 |:---|:---:|:---|
 | **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
 | **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 1 | For building the circuit. |
-| **[Various LEDs](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 4 | Our output variable. 🚨 |
-| **[PIR Motion Sensor](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | For sensing and detecting motion. |
+| **[OLED Display](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Our output variable. 🚨 |
+| **[Ultrasonic Distance Sensor 5V](https://www.sparkfun.com/ultrasonic-distance-sensor-hc-sr04.html)** | 1 | For sensing and detecting distance. |
 | **[220 ohm Resistor](https://www.adafruit.com/product/2780?srsltid=AfmBOopmkZkIUP5s_hycNqkQo98pfRENfjLETCFsG8mRPr04hxSWfXWS)** | 3 | Controls electrical curent to the LED. |
 | **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
 
