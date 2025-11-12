@@ -1,5 +1,5 @@
 # Ultrasonic Distance Sensor + OLED Display
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion + Leds.jpg" width="600"/> |
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/bfd2ba10d00b36ba7951d288e42c2c2b350f071e/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/Ultrasonic%20Distance%20%2B%20OLED%20Display_bb.jpg" width="600"/> |
 |:---|:---:|
 
 
