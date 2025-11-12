@@ -78,7 +78,7 @@ Run the code above and check the serial monitor to see if it reads 'motion detec
 <details>
  
   <summary>
-     <h2> Step 2: Creating a Parrellel Circuit + Powering LEDs </h2>
+     <h2> Step 2: OLED Display </h2>
   </summary>
   <br>
 Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
