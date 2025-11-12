@@ -14,9 +14,8 @@
 |:---|:---:|:---|
 | **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
 | **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 1 | For building the circuit. |
-| **[OLED Display](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | Our output variable. 🚨 |
-| **[Ultrasonic Distance Sensor 5V](https://www.sparkfun.com/ultrasonic-distance-sensor-hc-sr04.html)** | 1 | For sensing and detecting distance. |
-| **[220 ohm Resistor](https://www.adafruit.com/product/2780?srsltid=AfmBOopmkZkIUP5s_hycNqkQo98pfRENfjLETCFsG8mRPr04hxSWfXWS)** | 3 | Controls electrical curent to the LED. |
+| **[Ultrasonic Distance Sensor 5V](https://www.sparkfun.com/products/13959)** | 1 | For sensing and detecting distance. |
+| **[OLED Display](https://www.amazon.com/DIYmall-Serial-128x64-Display-Arduino/dp/B00O2KDQBE)** | 1 | Our output display. |
 | **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
 
   <p>
@@ -26,7 +25,7 @@
 
 <details>
   <summary>
-     <h2> Step 1: PIR Motion Sensor </h2>
+     <h2> Step 1: Ultrasonic Distance Sensor </h2>
   </summary>
   <br>
   <p>
