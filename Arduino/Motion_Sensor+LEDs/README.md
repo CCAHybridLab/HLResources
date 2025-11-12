@@ -1,184 +1,226 @@
-# <b> Electric Heatpad + Peltier Thermo-Electric Cooler </b> 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="400"/>|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Ultrasonic_Sensor+OLED-Display/wiring-ultrasonic-distance+OLED-display.png" width="600"/>|
-|--|--|
+# <b> Potentiometer + Diffused RGB LED </b> 
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion + Leds.jpg" width="600"/> |
+|:---|:---:|
 
-## Equipment
-Don't have the parts? Build and test digitally on [Tinkercad](https://www.tinkercad.com/things/cYTtEqcJcwH-amazing-fulffy/editel?tenant=circuits)
-- [Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)
-- [Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)
-- [Buttons](https://www.adafruit.com/product/1481)
-- [MOSFET Module Driver](https://www.adafruit.com/product/1481)
-- [Electric Heatpad](https://www.adafruit.com/product/1481)
-- [Peltier Thermo-Electric Cooler Module](https://www.adafruit.com/product/1331)
 
-## 🔴 Step 1: Buttons
-Little clicky switches are standard input "buttons" on electronic projects. These work best in a PCB but can be used on a solderless breadboard as shown in this tutorial. The pins are normally open (disconnected) and when the button is pressed they are momentarily closed.
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Tactile_Button.jpg" width="500"/>
+ ## ⚙️ Equipment & Components
 
-#### Move on to Step 2 once you've mimiced the diagram above. 
-## Step 2: MOSFET Module Driver
-The IRF520 MOSFET Driver Module is used to drive and control MOSFETs in various electronic circuits. Specifically, it is often used in situations where you need to provide high-power to devices or components (like motors, LEDs, or other loads) with a lower-power control signal, typically from a microcontroller (e.g., Arduino, Raspberry Pi). So, the module allows you to use a small control signal (like from a microcontroller or an Arduino) to switch the MOSFET on and off, which in turn controls a larger, high-power load (like a motor, LED strip, etc.).
-### How does the MOSFET Module Driver work?
-In order to send a high-voltage source of power to your components, you first need to power the MOSFET Module in order to "open the gate" to the high voltage. So, an Arduino (or microcontroller) sends a signal to the SIG pin on the MOSFET which then powers the driver and creates a circuit rhough conecting it to the GND pin and back to the Arduino.
+<p>
+  This project uses a potentiometer to control RGB LED output.
+</p>
 
-Across the board of the driver are the VIN pin and GND pins. These pins are used to supply your output with a high-voltage source of power. You would attached your high-source of power (9V battery pack, 12v power pack, etc) to these pins. 
+| Component | Quantity | Notes |
+|:---|:---:|:---|
+| **[Arduino Uno](https://airtable.com/appCpmcjYA1vwj8jn/tblOHGyZIGOZuJhCj/viwcQ6Lj5fpoG6Hvh/recQ1P43HKyVMjA79?blocks=hide)** | 1 | The brain of our project. |
+| **[Breadboard](https://airtable.com/appCpmcjYA1vwj8jn/tblZz5NUA546g9J6o/viwu3SMJU1AEGhMGK/recF514LASWf2n9LH?blocks=hide)** | 1 | For building the circuit. |
+| **[Various LEDs](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 4 | Our output variable. 🚨 |
+| **[PIR Motion Sensor](https://www.adafruit.com/product/159?srsltid=AfmBOoqQ8dGMa6cjChJbZBdz2py7uabAm7BrxtUhuQIJAAsMwGzsS3r9Ke8)** | 1 | For sensing and detecting motion. |
+| **[220 ohm Resistor](https://www.adafruit.com/product/2780?srsltid=AfmBOopmkZkIUP5s_hycNqkQo98pfRENfjLETCFsG8mRPr04hxSWfXWS)** | 3 | Controls electrical curent to the LED. |
+| **[Jumper Wires](https://www.adafruit.com/category/306?srsltid=AfmBOook5BsXkN5B8NOekLEvpqA6bxxpfq-iHHaRTnXBJzHQmaL5iwjg)** | 1 Bundle | For connecting all the components. |
 
-Lastly, the <b> V- & V+ </b> pins on the driver are used as the positive and negative for your ouput source. 
+  <p>
+    <strong>Important Note:</strong>
+ Always make sure you have all equipment before starting a project.
+  </p>
 
-<b> *Please note, if the SIG signal is high (e.g., 5V), the MOSFET turns on, and current flows. If the SIG signal is low (0V), the MOSFET is off, and no current flows through. </b>
+<details>
+  <summary>
+     <h2> Step 1: PIR Motion Sensor </h2>
+  </summary>
+  <br>
+  <p>
+   PIR (Passive Infrared) sensors are designed to detect motion at distances of up to approximately 5 meters. They’re easy to use: simply power the sensor with 5V, and its onboard voltage regulator takes care of the rest. The sensor provides a digital output with two states: HIGH and LOW. When motion is detected, the output goes HIGH and remains in that state for about 2 seconds before returning to LOW.
+ </p>
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/MOSFET_Driver.jpg" width="550"/>
+For this project, connect the motion sensor to the arduino and bread board as follows:
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-### How to the calculate voltage
-Distance = (Speed x Time) / 2 <br /> <br /> 
-Example: Let’s say the Echo pin was HIGH for 2ms. If we want the get the distance result in **cm**, we can convert the speed of sound value from 340m/s to 34cm/ms. <br />
-- Speed = 34cm/ms <br />
-- Time = 2ms <br />
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor.jpeg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/4ec707a5fdd48399b8c6749f9183a4181b6417fd/Arduino/Motion_Sensor%2BLEDs/assets/PIR%20Motion%20%2B%20Leds.jpg" width="600"/> |
+|:---|:---:|
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+
+  <p>
+   When we connect the motion sensor to the Arduino, we can read it's output values with the following program:
+   
+  </p>
+  
+**Arduino Code:** <br />
 ```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
+// Define the PIR sensor pin
+const int PIRPin = 2;
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
-
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
+  pinMode(PIRPin, INPUT);
+  Serial.println("PIR Sensor is warming up...");
+  delay(2000); // Give the sensor time to stabilize
+  Serial.println("Ready to detect motion!");
 }
+
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  int pirState = digitalRead(PIRPin);
+
+  if (pirState == HIGH) {
+    Serial.println("Motion detected");
+  } else {
+    Serial.println("No motion");
+  }
+
+  delay(500); // Adjust delay for how fast you want updates
 }
 ```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 3: Electric Heating Pad
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
-### How does the Electric Heating Pad work?
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Heat_Pad.jpg" width="650"/>
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-### How to the calculate distance
-Distance = (Speed x Time) / 2 <br /> <br /> 
-Example: Let’s say the Echo pin was HIGH for 2ms. If we want the get the distance result in **cm**, we can convert the speed of sound value from 340m/s to 34cm/ms. <br />
-- Speed = 34cm/ms <br />
-- Time = 2ms <br />
+<p>
+Run the code above and check the serial monitor to see if it reads 'motion detected' and 'no motion'. If the serial monitor is able to succesfully detect boths states of the PIR sensor, congrats you did it! Move on to step 2. 
+</p>
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
+</details>
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
+<details>
+ 
+  <summary>
+     <h2> Step 2: Creating a Parrellel Circuit + Powering LEDs </h2>
+  </summary>
+  <br>
+Next, we’ll create a simple circuit to evenly distribute power to the LEDs and make them light up. To do this, follow the wiring diagram below.
+LEDs need three key connections: power, ground, and a resistor (typically 220 Ω for warm colors and 100 Ω for cool colors). Each LED has two legs, the longer leg is the positive (anode) side and the shorter leg is the negative (cathode) side.
+<br> </br> 
+Resistors are an important part of the circuit as they limit the amount of current flowing to each LED. Without a resistor, too much current could pass through, which can burn out or damage the LED bulb. The resistor helps make sure each LED receives just the right amount of power to glow safely and evenly.
+<br> </br>
+When connected to a microcontroller (like an Arduino), the LEDs get their power through digital output pins. Each pin can switch between HIGH (on) and LOW (off), sending small bursts of electrical current that make the LEDs light up. This digital control is what allows you to turn LEDs on and off in patterns using code.
+<br> </br>
+  
+ |<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" /> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Tutorials/Potentiometer%2BRGB_LED/assets/led_example.png" width="600" />| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/LEDs_bb.jpg" width="600"/> |
+ |:---|:---:|:---|
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+Once the LEDs are wired correctly, we can use the code to control how and when they light up. In this tutorial, each LED will turn on one after another in sequence but that’s just one example. You can program them in many creative ways! Try having them all light up at once, skip every other LED, or turn on two or three at a time. The possibilities are endless so experiment and make it your own!
+  
+  **Arduino Code:** <br /> 
+  ```C++
+ // Constants:
+const int rLedPin = 3;
+
+const int rPotPin = A4;
+
+const int potMin = 100;
+const int potMax = 1000;
+
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
+
+  pinMode(rLedPin, OUTPUT);
 }
+
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  updateRedPot();
+
+  delay(200);  // Main loop delay
 }
-```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 4: Peltier Thermo-Electric Cooler
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
-### How does the Peltier work?
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="650"/>
 
-More thorough hardware details in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+void updateRedPot() {
+  int valueRedPot = analogRead(rPotPin));  //reading data from the red pot
+  int valueRed = map(valueRedPot, potMin, potMax, 0, 255);
+  if (valueRedPot <= potMin) valueRed = 0;
+  if (valueRedPot >= potMax) valueRed = 255;
 
-Distance = (Speed x Time) / 2 = (34cm/ms x 2ms) / 2 = 25.5cm.  <br />  <br /> 
-**Arduino Code:** <br /> 
-Code Step-by-Step Explanation in [Mechatronic's Guide](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
-```C++
-  /*
-  Ultrasonic Sensor HC-SR04 and Arduino Tutorial
+  Serial.print("RedPot: ");
+  Serial.println(valueRedPot);
+  Serial.print("RedLEDVal: ");
+  Serial.println(valueRed);
+  Serial.println("----------");
 
-  by Dejan Nedelkovski,
-  www.HowToMechatronics.com
-*/
+  analogWrite(rLedPin, valueRed);
+}
+  ```
+  
+</details>
 
-// defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
-// defines variables
-long duration;
-int distance;
+<details>
+  <summary>
+     <h2> Step 3: Combining all components! </h2>
+  </summary>
+  <br>
+ 
+  Okay, now let’s add the rest! Since we are trying to change a single bulb, we’ll need to use an RGB LED, this has 4 pins instead of 2, the long one is now ground, (make sure this is a common cathode bulb!) and the other 3 correlate to data for each color. Adding the potentiometers and LEDs for green and blue is our last hardware step. 
+
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor_LED_Board.jpg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/PIR Motion + Leds.jpg" width="600"/> |
+|:---|:---:|
+  
+As mentioned before, potentiometer readings are not always stable. To combat this further, we can add an averaging system. This is done by creating an integer that will read data from the potentiometer for a certain amount of time, and then divide the data by how long it was counting to receive an average. Now we have to replace where analogRead was in the last example with readAveragedAnalog so we are only using the averaged numbers when writing to the LED’s. Since we connected the RGB LED on the breadboard to where our regular LED’s are, we only need to write to one pin per color. All that’s left is to make green and blue versions of each command! 
+  
+  **Arduino Code:** <br /> 
+  ```C++
+ // Define pins
+const int PIRPin = 2;
+const int BlueLEDPin = 10;
+const int YellowLEDPin = 11;
+const int OrangeLEDPin = 12;
+const int RedLEDPin = 13;
+
+bool isMotionHandled = false;  // Flag to track if motion has already been handled
+
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  Serial.begin(9600);
+  pinMode(PIRPin, INPUT);
+  pinMode(BlueLEDPin, OUTPUT);
+  pinMode(YellowLEDPin, OUTPUT);
+  pinMode(OrangeLEDPin, OUTPUT);
+  pinMode(RedLEDPin, OUTPUT);
 }
+
 void loop() {
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance = duration * 0.034 / 2;
-  // Prints the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
+  int pirState = digitalRead(PIRPin);
+
+  // motion triggered from no motion handling
+  if (pirState == HIGH && !isMotionHandled) {
+    Serial.println("motion FIRST triggered");
+    // Trigger LEDs once per motion event
+    isMotionHandled = true;
+
+    Serial.println("Motion detected!");
+    // LEDs loading up
+    digitalWrite(BlueLEDPin, HIGH);
+    delay(200);
+    digitalWrite(YellowLEDPin, HIGH);
+    delay(200);
+    digitalWrite(OrangeLEDPin, HIGH);
+    delay(200);
+    digitalWrite(RedLEDPin, HIGH);
+    delay(1000);
+  } 
+  
+  if (pirState == LOW && isMotionHandled) {
+    Serial.println("motion DONE triggerd");
+    digitalWrite(RedLEDPin, LOW);
+    delay(200);
+    digitalWrite(OrangeLEDPin, LOW);
+    delay(200);
+    digitalWrite(YellowLEDPin, LOW);
+    delay(200);
+    digitalWrite(BlueLEDPin, LOW);
+  }
+
+  if (pirState == HIGH && isMotionHandled) {
+    Serial.println("DETECTING MOTION");
+  }
+
+  // Reset the flag once PIR returns to LOW
+  if (pirState == LOW) {
+    Serial.println("NO MOTION");
+    isMotionHandled = false;
+  }
+
+  delay(50); // Slight delay to avoid excessive polling
 }
-```
-#### Move on to Step 2 once you're seeing accurate distance data on serial monitor
-## Step 5: Put them all together!
-The sensor is composed of two ultrasonic transducers. One is transmitter which outputs ultrasonic sound pulses and the other is receiver which listens for reflected waves. It’s basically a SONAR which is used in submarines for detecting underwater objects.
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="500"/>
-<br/>
+  ```
+  <br/>
+</details>
+
+<details>
+  <summary>
+     <h2> Step 4 (Optional): 3D Printing Case for Motion Sensor </h2>
+  </summary>
+To help secure the Peltier module and keep it from shifting around, we’ve included a custom 3D-printed case design. You can find the print file in the “3D Assets” folder of this tutorial. As a bonus, the file is already set up for easy printing on a Bambu printer, but you can adapt it for other 3D printers as well.
+<br> </br>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/3D_model.jpg" width="500"/>
+</details>
