@@ -67,16 +67,18 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // Print values into the serial monitor as Distance = __cm
   Serial.print("Distance = ");
   Serial.print(sonar.ping_cm());
   Serial.println(" cm");
-  delay(500);
+  delay(500); //ensures the Arduino isn't recieving too much information
 }
 ```
 
 <p>
 Run the code above and check the serial monitor. Place your hand in front of your sensor-- did the output change? Try moving your hand a bit farther or closer. If your distance reading gets higer or lower accordingly, congrats, you did it! Move on to step 2. 
+
+For more information on this step, feel free to visit this reference: https://lastminuteengineers.com/arduino-sr04-ultrasonic-sensor-tutorial/
 </p>
 
 </details>
