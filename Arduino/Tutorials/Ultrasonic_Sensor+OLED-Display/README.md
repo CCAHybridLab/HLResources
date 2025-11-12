@@ -35,7 +35,7 @@
 
 For this project, connect the motion sensor to the arduino and bread board as follows:
 
-| <img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Motion_Sensor+LEDs/assets/Motion_Sensor.jpeg" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/11662159ac278d2a206332ef090c7668a1254620/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/Ultrasonic%20Distance%20%2B%20OLED%20Display_bb.png" width="600"/> |
+| <img src="https://github.com/CCAHybridLab/HLResources/blob/181289ec43455e864a690efa55493ebef9532c9c/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/177109536.webp" width="600"/> | <img src="https://github.com/CCAHybridLab/HLResources/blob/11662159ac278d2a206332ef090c7668a1254620/Arduino/Tutorials/Ultrasonic_Sensor%2BOLED-Display/tutorial%20images/Ultrasonic%20Distance%20%2B%20OLED%20Display_bb.png" width="600"/> |
 |:---|:---:|
 
 
