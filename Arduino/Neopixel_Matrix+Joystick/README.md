@@ -171,5 +171,4 @@ Use the joystick to control and move around the single LED pixel. Once the red L
 
 While this is just one game you can program with the Neopixel matrix, the possiblities are endless! Other examples that people have done are Snake, Connect Four and more!
 
-|<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Peltier_Thermo_Electric.jpeg" width="500"/>
 <br/>
