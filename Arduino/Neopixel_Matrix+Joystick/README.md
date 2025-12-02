@@ -66,7 +66,7 @@ A distance measuring sensor which has a range from 2cm to 400cm (about an inch t
 #include <Adafruit_NeoMatrix.h>
 #include <Adafruit_NeoPixel.h>
 
-#define PIN 6  // NeoPixel data pin
+#define PIN 3  // NeoPixel data pin
 
 // Initialize an 8x8 NeoMatrix
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(
@@ -77,13 +77,13 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(
 
 #define JOYSTICK_X A0  // Joystick X-axis
 #define JOYSTICK_Y A1  // Joystick Y-axis
-#define BUTTON 2       // Joystick button (optional)
+#define JOYSTICK_BTN_PIN 2       // Joystick button (optional)
 
 int snakeX, prevX = 0;  // Initial square position
 int snakeY, prevY = 0;
 int foodX = 3;
 int foodY = 3;
-
+uint16_t snakeColor = matrix.Color(0, 200, 160); // starting color
 
 void setup() {
     Serial.begin(9600);
@@ -93,21 +93,31 @@ void setup() {
 
     pinMode(JOYSTICK_X, INPUT);
     pinMode(JOYSTICK_Y, INPUT);
-    pinMode(BUTTON, INPUT_PULLUP);
+    pinMode(JOYSTICK_BTN_PIN, INPUT_PULLUP);
 }
 
 void loop() {
     int xValue = analogRead(JOYSTICK_X);
     int yValue = analogRead(JOYSTICK_Y);
+    int btnValue = digitalRead(JOYSTICK_BTN_PIN);
     Serial.print(" X: ");
     Serial.println(xValue);
     Serial.print("Y: ");
     Serial.println(yValue);
+    Serial.print("BTN: ");
+    Serial.println(btnValue);
+
+    if (btnValue == 0) {
+      int randRed = random(0, 255);
+      int randGreen = random(0, 255);
+      int randBlue = random(0, 255);
+      snakeColor = matrix.Color(randRed, randGreen, randBlue); // random(min, max)
+    } 
   
     checkFoodCollision();
     // Map joystick values (adjust sensitivity if needed) & Movement Direction + Bound check
     mapJoystick(xValue, yValue);
-    movePixel(snakeX, snakeY, matrix.Color(0, 200, 160)); // Red square
+    movePixel(snakeX, snakeY, snakeColor); // Red square
     delay(150); // Adjust speed of movement
 }
 
@@ -139,29 +149,26 @@ void movePixel(int newX, int newY, uint16_t color) {
 // Map joystick values (adjust sensitivity if needed) & Movement Direction + Bound check
 void mapJoystick(int xValue, int yValue) {
   if (xValue < 400) { // move left
-      snakeX = snakeX - 1; // snake--
-      if (snakeX < 0) { // out of bounds
-        snakeX = snakeX + 8;
-      }
+    snakeX = snakeX - 1; // snake--
+    if (snakeX < 0) { // out of bounds
+      snakeX = snakeX + 8;
     }
-    if (xValue > 600) { // move right
-    snakeX = snakeX +1; // snake++
-      if (snakeX > 7) { //out of bounds
-        snakeX = 0;
-      }   
+  } else if (xValue > 600) { // move right
+  snakeX = snakeX +1; // snake++
+    if (snakeX > 7) { //out of bounds
+      snakeX = 0;
+    }   
+  } else if (yValue < 400) { //move up
+    snakeY = snakeY + 1; //snake ++
+    if (snakeY > 7) { //out of bounds
+      snakeY = 0;
     }
-    if (yValue < 400) { //move up
-      snakeY = snakeY + 1; //snake ++
-      if (snakeY > 7) { //out of bounds
-        snakeY = 0;
-      }
+  } else if (yValue > 600) { //move down
+    snakeY = snakeY - 1; //snake --
+    if (snakeY < 0) { //out of bounds
+      snakeY = snakeY + 8;
     }
-    if (yValue > 600) { //move down
-      snakeY = snakeY - 1; //snake --
-      if (snakeY < 0) { //out of bounds
-        snakeY = snakeY + 8;
-      }
-    }
+  }
 }
 ```
 
