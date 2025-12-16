@@ -14,9 +14,7 @@
 | **[Neopixel Matrix](https://airtable.com/appCpmcjYA1vwj8jn/shrkKEse5QyVzAMIc/tbl5EZ1pGlx6I9Mqy/viwj7SvoKaP2xgi9w/recjzIjnE0GcErlis)** | 1 | Our output will be displayed here. |
 | **[Joystick](https://airtable.com/appCpmcjYA1vwj8jn/shrkKEse5QyVzAMIc/tbldSw9ZFUadEDJm4/viwrlpDYJJs9tKf52/recZUrb1Xb0vNxLGp)** | 1 | The joystick can controls the colors, brightness, or motion patterns displayed on the NeoPixel matrix. |
 
-<p>
-    Don't have the parts? Build and test digitally on [Wokwi](https://wokwi.com/)
-</p>
+Don't have the parts? Build and test digitally on [Wokwi](https://wokwi.com/)
 
 ## Step 1: Joystick
 The thumbstick is an **analog joystick**, offering smoother and more precise control than simple directional ones. It measures movement on **two axes** — X and Y — using **analog signals** (read through two analog pins), and includes a **press-in button** (connected to a digital pin) for extra input.
