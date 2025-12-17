@@ -25,9 +25,60 @@ The thumbstick is an **analog joystick**, offering smoother and more precise con
 
 
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Joystick.jpeg" width="500"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Neopixel_Matrix%2BJoystick/media/Only%20joystick.png" width="500"/>
 
-#### Move on to Step 2 once your model looks like above. 
+**Arduino Code:** <br />
+```C++
+#include <Adafruit_GFX.h>
+
+#define JOYSTICK_X A0  // Joystick X-axis
+#define JOYSTICK_Y A1  // Joystick Y-axis
+#define JOYSTICK_BTN_PIN 2       // Joystick button (optional)
+
+void setup() {
+    Serial.begin(9600);
+
+    pinMode(JOYSTICK_X, INPUT);
+    pinMode(JOYSTICK_Y, INPUT);
+    pinMode(JOYSTICK_BTN_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+    int xValue = analogRead(JOYSTICK_X);
+    int yValue = analogRead(JOYSTICK_Y);
+    int btnValue = digitalRead(JOYSTICK_BTN_PIN);
+    Serial.print(" X: ");
+    Serial.print(xValue);
+    Serial.print(" Y: ");
+    Serial.print(yValue);
+    Serial.print(" BTN: ");
+    Serial.println(btnValue);
+
+    if (btnValue == 0) {
+      Serial.println("BUTTON PRESSED DO SOMETHING HERE");
+    } 
+  
+    // Map joystick values (adjust sensitivity if needed) & Movement Direction + Bound check
+    mapJoystick(xValue, yValue);
+
+    delay(150); // Add a slight delay
+}
+
+// Map joystick values (adjust sensitivity if needed) & Movement Direction + Bound check
+void mapJoystick(int xValue, int yValue) {
+  if (xValue < 400) { // move left
+    Serial.println("MOVING RIGHT");
+  } else if (xValue > 600) { // move right
+    Serial.println("MOVING LEFT");   
+  } else if (yValue < 400) { //move up
+    Serial.println("MOVING DOWN");
+  } else if (yValue > 600) { //move down
+    Serial.println("MOVING UP");
+  }
+}
+```
+
+#### Open the Serial Monitor (magnifying glass in top right) to verify that you joystick is working
 
 ## Step 2: Neopixel Matrix
 Put on your sunglasses before wiring up this LED matrix - 64 eye-blistering RGB LEDs adorn the NeoMatrix for a blast of configurable color. Arranged in an 8x8 matrix, each pixel is individually addressable. Only one microcontroller pin is required to control all the LEDs, and you get 24 bit color for each LED.
@@ -38,24 +89,17 @@ Solder wires to the input port: connect +5V to your 5-volt power source, GND to 
 
 Each LED can draw up to 60 mA when fully lit in white, so a 64-pixel panel could use up to 3.5 A at maximum brightness. In most cases, average use draws 1–2 A, so a 5 V 2 A power supply is usually sufficient.
 
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Matrix_Off.jpg" width="550"/>
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Neopixel_Matrix%2BJoystick/media/only%20neopixel%20matrix.png" width="550"/>
 
-#### Move on to Step 3 once you're seeing accurate distance data on serial monitor
+**Arduino Code:** <br />
+```C++
 
-
-<!-- I'm confused what doesn the above sentence mean? what do you see and where -->
-
-
+```
 
 ## Step 3: Adding interactive code to create a game!
-A distance measuring sensor which has a range from 2cm to 400cm (about an inch to 13 feet). Best used for accurately measuring the distance to an object within a specific range, particularly when you want to detect the presence or proximity of an object without direct contact, making it useful for applications like obstacle avoidance, line following, automated door opening, or level detection in a robot or device. 
-
-<img src="https://github.com/CCAHybridLab/HLResources/blob/main/assets/Joystick_Game.jpg" width="550"/>
 
 
-
-<!-- I'm very confused why is there a distance sensor here?? and the image link is void -->
-
+<img src="https://github.com/CCAHybridLab/HLResources/blob/main/Arduino/Neopixel_Matrix%2BJoystick/media/Neopixel%20matrix%2Bjoystick.png" width="550"/>
 
 
 **Arduino Code:** <br /> 
