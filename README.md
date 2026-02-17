@@ -5,6 +5,9 @@ Watch this [Orientation Video](https://drive.google.com/file/d/1KSwYq2ss4aKgwpnr
 ### Soldering Orientation Video
 Follow Along to this [Soldering Orientation Video](https://drive.google.com/file/d/1KSwYq2ss4aKgwpnr2WliPHES3kHg1nob/view?usp=sharing) to familiarize yourself with how the Hybrid Lab works and what resources we have.)
 
+## Student Resources
+Come check out our [Starter Arudino Kit](https://github.com/CCAHybridLab/HLKits/wiki/HL-Kit-Component-Tutorials)
+
 ## Tutorials
 ### [Arduino Tutorials with Sensors and Outputs](https://github.com/CCAHybridLab/HLResources/tree/main/Arduino)
 Learn how to use various sensors like distance, pressure, motion, and sound to control outputs like LEDs, motors, speakers, temperature.
