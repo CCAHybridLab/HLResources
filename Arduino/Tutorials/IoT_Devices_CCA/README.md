@@ -15,6 +15,7 @@
    void loop() {
    }
    ```
+Open Serial Monitor to view the MAC Address
 ## 2. With the MAC Address, [Follow this Guide to Register device](https://portal.cca.edu/knowledge-base/general/registering-iot-devices-to-wifi/)
 ## 3. Update Arduino Project Code with
 ```
